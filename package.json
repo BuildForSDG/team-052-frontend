@@ -1,5 +1,5 @@
 {
-  "name": "new-app",
+  "name": "team-052-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,11 +14,18 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1"
   },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "jest": "^25.4.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint \"src/**/*.js\""
   },
   "eslintConfig": {
     "extends": "react-app"

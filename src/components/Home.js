@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container'
 const Home = () => {
     return(
         <Container>
-            <div className="body">home</div>
+            <span>team-052 front end</span>
         </Container>
     )
 }
