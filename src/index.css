@@ -39,5 +39,10 @@
 /*}*/
 
 h1,h2, h3,h4,h5,p{
-  font-family: "Lucida Console", Monaco, monospace;
+    font-family: "Lucida Console", Monaco, monospace;
+}
+
+.card-img-top:hover{
+   transform: scale(1.1,1.1);
+   transition: transform 0.5 ease;
 }

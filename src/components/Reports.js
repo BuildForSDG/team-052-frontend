@@ -14,20 +14,19 @@ const Reports = () => {
       <div className="container">
         <ReportsContainer>
           <div className="row mt-2">
-            <div className="col-6 mb-5" style={{ width: '18rem' }}>
+            <div className="col-6" style={{ width: '18rem' }}>
               <div className="m-4">
                 <img src={AccidentImage} className="card-img-top" />
               </div>
               <div className="card-body pt-2">
-                <p className="card-title">
+                <div style={{ display: 'flex' }}>
+                  <p>STATUS</p>: <span className="text-info">ENROUTE</span>
+                  <p className="text-right ml-auto">SEVERITY: </p>
+                  <span className="text-danger">HEAVY</span>
+                </div>
+                <p className="card-title text-center">
                   <strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, nostrum!</strong>
                 </p>
-                {/* <p className="card-text text-center"> */}
-                {/*  Some quick example text to build on the card title and make up the bulk of the card's content. */}
-                {/* </p> */}
-                {/* <a href="#" className="btn btn-primary"> */}
-                {/*  Go somewhere */}
-                {/* </a> */}
               </div>
             </div>
             <div className="col-6 mb-5" style={{ width: '18rem' }}>
@@ -35,31 +34,30 @@ const Reports = () => {
                 <img src={AccidentImage} className="card-img-top" />
               </div>
               <div className="card-body pt-2">
-                <h5 className="card-title">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, nostrum!
-                </h5>
-                {/* <p className="card-text text-center"> */}
-                {/*  Some quick example text to build on the card title and make up the bulk of the card's content. */}
-                {/* </p> */}
-                {/* <a href="#" className="btn btn-primary"> */}
-                {/*  Go somewhere */}
-                {/* </a> */}
+                <div style={{ display: 'flex' }}>
+                  <p>STATUS</p>: <span className="text-info">ENROUTE</span>
+                  <p className="text-right ml-auto">SEVERITY: </p>
+                  <span className="text-danger">HEAVY</span>
+                </div>
+                <p className="card-title text-center">
+                  <strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, nostrum!</strong>
+                </p>
               </div>
             </div>
+
             <div className="col-6 mb-5" style={{ width: '18rem' }}>
               <div className="m-4">
                 <img src={AccidentImage} className="card-img-top" />
               </div>
               <div className="card-body pt-2">
-                <h5 className="card-title">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, nostrum!
-                </h5>
-                {/* <p className="card-text text-center"> */}
-                {/*  Some quick example text to build on the card title and make up the bulk of the card's content. */}
-                {/* </p> */}
-                {/* <a href="#" className="btn btn-primary"> */}
-                {/*  Go somewhere */}
-                {/* </a> */}
+                <div style={{ display: 'flex' }}>
+                  <p>STATUS</p>: <span className="text-info">ENROUTE</span>
+                  <p className="text-right ml-auto">SEVERITY: </p>
+                  <span className="text-danger">HEAVY</span>
+                </div>
+                <p className="card-title text-center">
+                  <strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, nostrum!</strong>
+                </p>
               </div>
             </div>
           </div>
