@@ -1,4 +1,7 @@
-.body{}
+.nav-bar{
+  color: black;
+  display: flex;
+}
 
 .card{
     width: 20rem;
@@ -18,7 +21,8 @@
 }
 
 .row{
-    padding-top: 8rem;
+    width: 84%;
+    /*padding-top: 8rem;*/
 }
 
 .card-img-top{
@@ -33,3 +37,5 @@
 .overflow {
     overflow: hidden;
 }
+
+

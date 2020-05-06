@@ -1,62 +1,65 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
+import CardDeck from 'react-bootstrap/CardDeck';
+import Navigation from './layouts/Navigation';
+import Banner from './layouts/Banner';
+import { ReportsContainer } from '../styles/ReportsStyle';
 
 const Reports = () => {
-    return(
-      <div className="container-fluid d-flex justify-content-center">
-        <div className="row">
-          <div className="col-md-4">
-            <div className="card text-center shadow">
-              <div className="overflow">
-                <img src="https://via.placeholder.com/150" className="card-img-top"/>
+  return (
+     <Fragment>
+        <Navigation/>
+        <Banner />
+       <Container>
+         <ReportsContainer>
+           <CardDeck>
+             <Card>
+               <Card.Img variant="top" src="https://via.placeholder.com/150" />
+               <Card.Body>
+                 <Card.Title>Card title</Card.Title>
+                 <Card.Text>
+                   This is a wider card with supporting text below as a natural lead-in to
+                   additional content. This content is a little bit longer.
+                 </Card.Text>
+               </Card.Body>
+               <Card.Footer>
+                 <small className="text-muted">Last updated 3 mins ago</small>
+               </Card.Footer>
+             </Card>
+             <Card>
+               <Card.Img variant="top" src="https://via.placeholder.com/150" />
+               <Card.Body>
+                 <Card.Title>Card title</Card.Title>
+                 <Card.Text>
+                   This card has supporting text below as a natural lead-in to additional
+                   content.{' '}
+                 </Card.Text>
+               </Card.Body>
+               <Card.Footer>
+                 <small className="text-muted">Last updated 3 mins ago</small>
+               </Card.Footer>
+             </Card>
+             <Card>
+               <Card.Img variant="top" src="https://via.placeholder.com/150" />
+               <Card.Body>
+                 <Card.Title>Card title</Card.Title>
+                 <Card.Text>
+                   This is a wider card with supporting text below as a natural lead-in to
+                   additional content. This card has even longer content than the first to
+                   show that equal height action.
+                 </Card.Text>
+               </Card.Body>
+               <Card.Footer>
+                 <small className="text-muted">Last updated 3 mins ago</small>
+               </Card.Footer>
+             </Card>
+           </CardDeck>
+         </ReportsContainer>
 
-                {/*hello*/}
-              </div>
-              <div className="card-body text-dark">
-                <h4 className="card-title">
-                  card title
-                </h4>
-                <p className="card-text text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur atque doloremque eligendi et explicabo iusto necessitatibus nostrum similique sit unde?</p>
-                <a href="/" className="btn btn-outline-success">Click</a>
-
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="card text-center">
-              <div className="overflow">
-                <img src="https://via.placeholder.com/150" className="card-img-top"/>
-              </div>
-              <div className="card-body text-dark">
-                <h4 className="card-title">
-                  card title
-                </h4>
-                <p className="card-text text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur atque doloremque eligendi et explicabo iusto necessitatibus nostrum similique sit unde?</p>
-                <a href="/" className="btn btn-outline-success">Click</a>
-
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="card text-center">
-              <div className="overflow">
-                <img src="https://via.placeholder.com/150" className="card-img-top"/>
-                {/*hello*/}
-              </div>
-              <div className="card-body text-dark">
-                <h4 className="card-title">
-                  card title
-                </h4>
-                <p className="card-text text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur atque doloremque eligendi et explicabo iusto necessitatibus nostrum similique sit unde?</p>
-                <a href="/" className="btn btn-outline-success">Click</a>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-    )
-}
+       </Container>
+     </Fragment>
+  );
+};
 
 export default Reports;
