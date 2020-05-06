@@ -1,41 +1,43 @@
-.nav-bar{
-  color: black;
-  display: flex;
+/*.nav-bar{*/
+/*  color: black;*/
+/*  display: flex;*/
+/*}*/
+
+/*.card{*/
+/*    width: 20rem;*/
+/*}*/
+
+/*.card:hover{*/
+/*    box-shadow: 5px 10px 20px 1px rgba(0,0,0,0.253)!important;*/
+/*}*/
+
+/*.card-body{*/
+/*    padding: 3rem 0 !important*/
+/*}*/
+
+/*.card-text{*/
+/*    font-size: 0.9rem;*/
+/*    padding: 0.4rem 1.9rem;*/
+/*}*/
+
+/*.row{*/
+/*    width: 84%;*/
+/*    !*padding-top: 8rem;*!*/
+/*}*/
+
+/*.card-img-top{*/
+/*    transform: scale(1);*/
+/*    transition: transform 0.5 ease;*/
+/*}*/
+
+/*.card-img-top:hover{*/
+/*    transform: scale(1.8);*/
+/*}*/
+
+/*.overflow {*/
+/*    overflow: hidden;*/
+/*}*/
+
+h1,h2, h3,h4,h5,p{
+  font-family: "Lucida Console", Monaco, monospace;
 }
-
-.card{
-    width: 20rem;
-}
-
-.card:hover{
-    box-shadow: 5px 10px 20px 1px rgba(0,0,0,0.253)!important;
-}
-
-.card-body{
-    padding: 3rem 0 !important
-}
-
-.card-text{
-    font-size: 0.9rem;
-    padding: 0.4rem 1.9rem;
-}
-
-.row{
-    width: 84%;
-    /*padding-top: 8rem;*/
-}
-
-.card-img-top{
-    transform: scale(1);
-    transition: transform 0.5 ease;
-}
-
-.card-img-top:hover{
-    transform: scale(1.8);
-}
-
-.overflow {
-    overflow: hidden;
-}
-
-

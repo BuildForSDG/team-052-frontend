@@ -19,9 +19,9 @@ const Reports = () => {
                 <img src={AccidentImage} className="card-img-top" />
               </div>
               <div className="card-body pt-2">
-                <h5 className="card-title">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, nostrum!
-                </h5>
+                <p className="card-title">
+                  <strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, nostrum!</strong>
+                </p>
                 {/* <p className="card-text text-center"> */}
                 {/*  Some quick example text to build on the card title and make up the bulk of the card's content. */}
                 {/* </p> */}
