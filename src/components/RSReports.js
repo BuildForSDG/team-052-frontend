@@ -6,8 +6,6 @@ import Navigation from './layouts/Navigation';
 import Banner from './layouts/Banner';
 import { ReportsContainer } from '../styles/ReportsStyle';
 
-console.log('he');
-console.log('hello there again')
 const Reports = () => {
   return (
     <Fragment>

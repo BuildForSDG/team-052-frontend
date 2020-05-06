@@ -4,7 +4,7 @@ import React, { Fragment } from 'react';
 import Navigation from './layouts/Navigation';
 import Banner from './layouts/Banner';
 import { ReportsContainer } from '../styles/ReportsStyle';
-
+console.log('fhj')
 const Reports = () => {
   return (
     <Fragment>
@@ -29,7 +29,7 @@ const Reports = () => {
             <div className="col-4" style={{ width: '18rem' }}>
               <img src="https://via.placeholder.com/150" className="card-img-top" />
               <div className="card-body pt-2">
-                <h5 className="card-title">Dummy</h5>
+                <h5 className="card-title">Dumghjfghjnbdhjdbhdjmy</h5>
                 <hr />
                 <p className="card-text text-center">
                   Some quick example text to build on the card title and make up the bulk of the card's content.
