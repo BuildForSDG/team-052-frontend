@@ -1,9 +1,10 @@
 {
+  "arrowParens": "always",
   "singleQuote": true,
   "semi": true,
   "printWidth":  120,
   "tabWidth":  2,
-  "trailingComma": "none",
+  "trailingComma": "all",
   "overrides": [
     {
       "files": "*.json",
@@ -11,5 +12,6 @@
         "parser": "json"
       }
     }
-  ]
+  ],
+  "proseWrap": "preserve"
 }
