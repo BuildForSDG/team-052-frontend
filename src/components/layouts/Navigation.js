@@ -8,12 +8,12 @@ const Navigation = () => {
   return (
     <Container>
       <div style={{ margin: '2%' }}>
-        <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+        <Navbar collapseOnSelect expand="lg" variant="light">
           <div style={{ width: '40%', fontSize: '1rem', color: 'yellow' }}>
             <Navbar.Brand href="#home">ProjecT-052</Navbar.Brand>
           </div>
           <Navbar.Collapse id="responsive-navbar-nav">
-            <div style={{ width: '100%' }}>
+            <div style={{ width: '100%' }} className="text-center">
               <Nav>
                 <NavItem>
                   <Nav.Link href="#deets">Lorem</Nav.Link>
