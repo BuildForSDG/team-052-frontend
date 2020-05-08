@@ -15,25 +15,10 @@ const Reports = () => {
         <ReportsContainer>
           <div className="row mt-2">
             <div className="col-6" style={{ width: '18rem' }}>
-              <div className="m-4">
+              <div className="reports-image m-4">
                 <img src={AccidentImage} className="card-img-top" />
               </div>
-              <div className="card-body pt-2">
-                <div style={{ display: 'flex' }}>
-                  <p>STATUS</p>: <span className="text-info">ENROUTE</span>
-                  <p className="text-right ml-auto">SEVERITY: </p>
-                  <span className="text-danger">HEAVY</span>
-                </div>
-                <p className="card-title text-center">
-                  <strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, nostrum!</strong>
-                </p>
-              </div>
-            </div>
-            <div className="col-6 mb-5" style={{ width: '18rem' }}>
-              <div className="m-4">
-                <img src={AccidentImage} className="card-img-top" />
-              </div>
-              <div className="card-body pt-2">
+              <div className="card-body pt-2 shadow">
                 <div style={{ display: 'flex' }}>
                   <p>STATUS</p>: <span className="text-info">ENROUTE</span>
                   <p className="text-right ml-auto">SEVERITY: </p>
@@ -45,11 +30,27 @@ const Reports = () => {
               </div>
             </div>
 
-            <div className="col-6 mb-5" style={{ width: '18rem' }}>
-              <div className="m-4">
+            <div className="col-6" style={{ width: '18rem' }}>
+              <div className="reports-image m-4">
                 <img src={AccidentImage} className="card-img-top" />
               </div>
-              <div className="card-body pt-2">
+              <div className="card-body pt-2 shadow">
+                <div style={{ display: 'flex' }}>
+                  <p>STATUS</p>: <span className="text-info">ENROUTE</span>
+                  <p className="text-right ml-auto">SEVERITY: </p>
+                  <span className="text-danger">HEAVY</span>
+                </div>
+                <p className="card-title text-center">
+                  <strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, nostrum!</strong>
+                </p>
+              </div>
+            </div>
+
+            <div className="col-6" style={{ width: '18rem' }}>
+              <div className="reports-image m-4">
+                <img src={AccidentImage} className="card-img-top" />
+              </div>
+              <div className="card-body pt-2 shadow">
                 <div style={{ display: 'flex' }}>
                   <p>STATUS</p>: <span className="text-info">ENROUTE</span>
                   <p className="text-right ml-auto">SEVERITY: </p>
