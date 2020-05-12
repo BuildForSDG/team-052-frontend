@@ -5,7 +5,7 @@ import Navigation from './layouts/Navigation';
 import Banner from './layouts/Banner';
 import { ReportsContainer } from '../styles/ReportsStyle';
 import AccidentImage from '../assets/image.jpg';
-import Footer from './layouts/Footer';
+import AppFooter from './layouts/AppFooter';
 
 const Reports = () => {
   return (
@@ -126,7 +126,7 @@ const Reports = () => {
             </div>
           </div>
         </ReportsContainer>
-        <Footer />
+        <AppFooter />
       </div>
     </Fragment>
   );
