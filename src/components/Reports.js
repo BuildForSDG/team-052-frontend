@@ -7,7 +7,7 @@ import AppFooter from './layouts/AppFooter';
 import AppContext from '../context/AppContext';
 
 const Reports = () => {
-  const { reports } = useContext(AppContext);
+  const { reports, loading } = useContext(AppContext);
 
   // {
   //   "note": "Alice to herself, 'I don't see how the game began. Alice gave a little timidly, for she was to.",
@@ -48,7 +48,13 @@ const Reports = () => {
       {/* <Banner /> */}
       <div className="container">
         <ReportsContainer>
-          <div className="row">{displayReports()}</div>
+          <div className="row">
+            {loading ? (
+              <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" />
+            ) : (
+              displayReports()
+            )}
+          </div>
         </ReportsContainer>
         <AppFooter />
       </div>

@@ -1,12 +1,24 @@
-import { GET_ALL_REPORTS } from '../constants/ReportTypes';
+import * as types from '../constants/ReportTypes';
 
 export const reportsReducer = (state, action) => {
   const { type, payload } = action;
   switch (type) {
-    case GET_ALL_REPORTS:
+    case types.LOADING_STARTS:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case types.LOADING_STOPS:
+      return {
+        ...state,
+        loading: false,
+      };
+    case types.GET_ALL_REPORTS:
       return {
         ...state,
         reports: payload,
+        loading: false,
       };
     default:
       return state;

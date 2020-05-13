@@ -6,8 +6,9 @@ import AppContext from './AppContext';
 import useReports from '../hooks/reports/useReports';
 
 const AppState = ({ children }) => {
-  const { reports } = useReports();
-  return <AppContext.Provider value={{ reports }}>{children}</AppContext.Provider>;
+  const { Provider } = AppContext;
+  const { reports, loading } = useReports();
+  return <Provider value={{ reports, loading }}>{children}</Provider>;
 };
 
 AppState.propTypes = {
