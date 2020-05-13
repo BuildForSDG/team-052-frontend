@@ -1,69 +1,41 @@
 import React, { Fragment } from 'react';
 import Navigation from './layouts/Navigation';
 import AppFooter from './layouts/AppFooter';
+import Banner from './layouts/Banner';
 
 const CreateReport = () => {
   return (
     <Fragment>
-      <Navigation/>
-      <div className="container">
+      <Navigation variant={'dark'} backgroundColor={'light'} />
+      <Banner />
+      <div className="container mt-5">
         <form>
-          <div className="form-group">
-            <label htmlFor="exampleInputEmail1">Email address</label>
-            <input
-              type="email"
-              className="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              placeholder="Enter email"
-            />
-            <small id="emailHelp" className="form-text text-muted">
-              We'll never share your email with anyone else.
-            </small>
-          </div>
-          <div className="form-group">
-            <label htmlFor="exampleInputEmail1">Email address</label>
-            <input
-              type="email"
-              className="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              placeholder="Enter email"
-            />
-            <small id="emailHelp" className="form-text text-muted">
-              We'll never share your email with anyone else.
-            </small>
+          <div className="row">
+            <div className="col-12 mb-5">
+              <input type="text" className="form-control" placeholder="Title example; severe accident at ojota" />
+            </div>
+
+            <div className="col-12 mb-5">
+              <textarea
+                className="form-control"
+                id="exampleFormControlTextarea1"
+                rows="3"
+                placeholder="Short description of the incident"
+              />
+            </div>
+
+            <div className="col-12 mb-5">
+              <input type="text" className="form-control" placeholder="Location e.g Lekki Epe" />
+            </div>
           </div>
 
-          <div className="form-group">
-            <label htmlFor="exampleInputEmail1">Email address</label>
-            <input
-              type="email"
-              className="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              placeholder="Enter email"
-            />
-            <small id="emailHelp" className="form-text text-muted">
-              We'll never share your email with anyone else.
-            </small>
+          <div className="text-center">
+            <button type="submit" className="btn btn-primary btn-lg">
+              Submit
+            </button>
           </div>
-
-          <div className="form-group">
-            <label htmlFor="exampleInputPassword1">Password</label>
-            <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
-          </div>
-          <div className="form-check">
-            <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-            <label className="form-check-label" htmlFor="exampleCheck1">
-              Check me out
-            </label>
-          </div>
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
         </form>
-        <AppFooter/>
+        <AppFooter />
       </div>
     </Fragment>
   );
