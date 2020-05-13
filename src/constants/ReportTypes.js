@@ -1,0 +1,3 @@
+export const GET_ALL_REPORTS = 'GET_ALL_REPORTS';
+export const LOADING_STARTS = 'LOADING_STARTS';
+export const LOADING_STOPS = 'LOADING_STOPS';
