@@ -8,8 +8,6 @@ barebones setup for JavaScript / Node projects replace this with a one-liner phr
 ## Setup
 git clone 'url'
 npm install
-git checkout -b react
-work from 'react' branch and push to react branch
 ## About
 
 What is this project about. Ok to enrich here or the section above it with an image. 
