@@ -1,4 +1,4 @@
-import * as types from '../constants/ReportTypes';
+import * as types from '../../constants/ReportTypes';
 
 export const reportsReducer = (state, action) => {
   const { type, payload } = action;
