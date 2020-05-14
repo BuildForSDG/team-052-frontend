@@ -6,10 +6,10 @@ import PropTypes from 'prop-types';
 import { NavItem } from '../../styles/NavStyles';
 import Urls from '../../utils/Paths';
 
-const Navigation = ({ variant, backgroundColor }) => {
+const Navigation = ({ variantColor, backgroundColor }) => {
   return (
     <div style={{ marginBottom: '2%', background: backgroundColor }}>
-      <Navbar collapseOnSelect expand="lg" variant={variant}>
+      <Navbar collapseOnSelect expand="lg" variant={variantColor}>
         <div style={{ width: '40%', fontSize: '1rem' }} className="ml-0">
           <Navbar.Brand>
             <Link style={{ color: 'black' }} to={Urls.HOME}>
@@ -52,7 +52,7 @@ const Navigation = ({ variant, backgroundColor }) => {
 };
 
 Navigation.propTypes = {
-  variant: PropTypes.string,
+  variantColor: PropTypes.string,
   backgroundColor: PropTypes.string,
 };
 export default Navigation;
