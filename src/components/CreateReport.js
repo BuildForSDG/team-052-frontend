@@ -6,9 +6,9 @@ import Banner from './layouts/Banner';
 const CreateReport = () => {
   return (
     <Fragment>
-      <Navigation variant={'dark'} backgroundColor={'light'} />
+      <Navigation backgroundColor={'rgb(1, 136, 73)'} variant={'light'} />
       <Banner />
-      <div className="container mt-5">
+      <div className="container mt-5 shadow">
         <form>
           <div className="row">
             <div className="col-12 mb-5">
@@ -30,11 +30,13 @@ const CreateReport = () => {
           </div>
 
           <div className="text-center">
-            <button type="submit" className="btn btn-primary btn-lg">
+            <button type="submit" className="btn btn-success btn-lg">
               Submit
             </button>
           </div>
         </form>
+      </div>
+      <div className="container">
         <AppFooter />
       </div>
     </Fragment>
