@@ -38,20 +38,31 @@
 /*    overflow: hidden;*/
 /*}*/
 
-h1,h2, h3,h4,h5,p{
-    font-family: "Lucida Console", Monaco, monospace;
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  font-family: "Lucida Console", Monaco, monospace;
 }
 
-.reports-image{
-    overflow: hidden;
+.reports-image {
+  overflow: hidden;
 }
 
-.reports-image img{
-    transition: all 1.5s ease;
+.reports-image img {
+  transition: all 1.5s ease;
 }
 
-.reports-image:hover img{
-    /* transform: scale(1.5); */
-   transform: scale(1.1,1.1);
+.reports-image:hover img {
+  /* transform: scale(1.5); */
+  transform: scale(1.1, 1.1);
 
 }
+
+/* .foot-part {
+  position: fixed;
+  bottom: 0;
+  height: 30px;
+} */

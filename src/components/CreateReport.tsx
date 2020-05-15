@@ -1,11 +1,22 @@
-import React, { FC, Fragment } from 'react';
+import React, { FC, Fragment, useContext } from 'react';
 import Navigation from './layouts/Navigation';
 import AppFooter from './layouts/AppFooter';
 import Banner from './layouts/Banner';
-// eslint-disable-next-line import/extensions
-import { ReportsProps } from '../interfaces/ReportsProps.interface';
+// import { AppState } from '../context/AppState';
+import AppContext from '../context/AppContext';
 
-const CreateReport: FC<ReportsProps> = () => {
+// type CreateReportType = {
+//   name: string;
+//   description: string;
+//   location: string;
+// };
+
+// type ReportTypes = {
+//   report: CreateReportType[];
+// };
+
+const CreateReport: FC = () => {
+  const { report } = useContext(AppContext);
   return (
     <Fragment>
       <Navigation backgroundColor={'rgb(1, 136, 73)'} variantColor={'light'} />
