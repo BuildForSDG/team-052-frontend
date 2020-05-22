@@ -22,11 +22,14 @@ export const useReports = () => {
     });
   };
   const getReports = async () => {
+    console.log(`${URL.GET_AUTH_REPORTS_URL}`);
     dispatch({
       type: types.LOADING_STARTS,
     });
+
     try {
-      const response = await axios.get(`${URL.GET_GUEST_REPORTS_URL}`);
+      const response = await axios.get(`${URL.GET_AUTH_REPORTS_URL}`);
+      console.log(response.data);
       if (response.data) {
         dispatch({
           type: types.GET_ALL_REPORTS,

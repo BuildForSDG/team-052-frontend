@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import useReports from '../hooks/reports/useReports';
 import AppContext from './AppContext';
+import useAuthentication from '../hooks/auth/useAuthentication';
 
 interface AppProps {
   children: ReactNode;
@@ -10,7 +11,8 @@ interface AppProps {
 export const AppState = ({ children }: AppProps) => {
   const { Provider } = AppContext;
   const { reports, loading, report } = useReports();
-  return <Provider value={{ reports, loading, report }}>{children}</Provider>;
+  const { onChange, login, loginUser, loadingLogin } = useAuthentication();
+  return <Provider value={{ reports, loading, report, onChange, login, loginUser, loadingLogin }}>{children}</Provider>;
 };
 
 // export default AppState;

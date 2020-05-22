@@ -66,3 +66,7 @@ p {
   bottom: 0;
   height: 30px;
 } */
+
+.login-container {
+  width: 30%;
+}

@@ -1,6 +1,7 @@
 const Urls = {
   CREATE_REPORT: '/create-report',
-  HOME: '/',
+  HOME: '/all-reports',
+  LOGIN: '/login',
 };
 
 export default Urls;
