@@ -4,6 +4,7 @@ import { LOGIN_URL } from '../../Urls/AuthenticationUrl';
 import authenticationReducer from '../../reducers/authentication/authenticationReducer';
 import { LOGIN_USER } from '../../constants/AuthenticationTypes';
 import { LOADING_STOPS } from '../../constants/ReportTypes';
+import Urls from '../../utils/Paths';
 
 export const useAuthentication = () => {
   const [{ loadingLogin }, dispatch] = useReducer(authenticationReducer, {
@@ -34,7 +35,7 @@ export const useAuthentication = () => {
 
       if (response.data.message === 'login successful') {
         sessionStorage.setItem('ApiToken', response.data.data.api_token);
-        history.push('/all-reports');
+        history.push(`${Urls.AUTH_HOME}`);
       }
     } catch (error) {
       if (error.response.data) {
