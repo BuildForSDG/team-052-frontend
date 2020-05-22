@@ -21,7 +21,7 @@ const CreateReport: FC = () => {
     <Fragment>
       <Navigation backgroundColor={'rgb(1, 136, 73)'} variantColor={'light'} />
       <Banner />
-      <div className="container mt-3 pt-3 pb-3 shadow">
+      <div style={{ width: '50%' }} className="container mt-3 pt-3 pb-3 shadow">
         <form>
           <div className="row">
             <div className="col-12 mb-5">
