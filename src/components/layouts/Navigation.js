@@ -13,7 +13,7 @@ const Navigation = ({ variantColor, backgroundColor }) => {
         <div style={{ width: '40%', fontSize: '1rem' }} className="ml-0">
           <Navbar.Brand>
             <Link style={{ color: 'black' }} to={Urls.HOME}>
-              ProjecT-052
+              PROJECT-052
             </Link>
           </Navbar.Brand>
         </div>
@@ -26,22 +26,20 @@ const Navigation = ({ variantColor, backgroundColor }) => {
             <Nav>
               <NavItem>
                 {/* <Nav.Link href="#deets"></Nav.Link> */}
-                <div>
-                  {' '}
-                  <Link to={Urls.CREATE_REPORT}>Create Report</Link>
-                </div>
+
+                <Link to={Urls.CREATE_REPORT} style={{ color: 'beige' }}>
+                  Create Report
+                </Link>
               </NavItem>
               <NavItem>
-                <div>
-                  {' '}
-                  <Link to={Urls.CREATE_REPORT}>Create Report</Link>
-                </div>
+                <Link to={Urls.CREATE_REPORT} style={{ color: 'beige' }}>
+                  Create Report
+                </Link>
               </NavItem>
               <NavItem>
-                <div>
-                  {' '}
-                  <Link to={Urls.CREATE_REPORT}>Create Report</Link>
-                </div>
+                <Link to={Urls.CREATE_REPORT} style={{ color: 'beige' }}>
+                  Create Report
+                </Link>
               </NavItem>
             </Nav>
           </div>

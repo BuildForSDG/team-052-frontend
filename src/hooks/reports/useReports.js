@@ -1,7 +1,7 @@
 /* eslint-disable import/no-named-as-default */
 import axios from 'axios';
 import { useReducer, useState, useEffect } from 'react';
-import { GET_ALL_REPORTS_URL } from '../../Urls/ReportUrl';
+import * as URL from '../../Urls/ReportUrl';
 import reportsReducer from '../../reducers/reports/reportsReducer';
 import * as types from '../../constants/ReportTypes';
 import { initialState } from '../../reducers/reports/reportsState';
@@ -26,7 +26,7 @@ export const useReports = () => {
       type: types.LOADING_STARTS,
     });
     try {
-      const response = await axios.get(`${GET_ALL_REPORTS_URL}`);
+      const response = await axios.get(`${URL.GET_GUEST_REPORTS_URL}`);
       if (response.data) {
         dispatch({
           type: types.GET_ALL_REPORTS,
