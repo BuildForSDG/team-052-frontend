@@ -1,9 +1,9 @@
 import React, { FC, Fragment, useContext } from 'react';
-import Navigation from './layouts/Navigation';
-import AppFooter from './layouts/AppFooter';
-import Banner from './layouts/Banner';
+import Navigation from '../layouts/Navigation';
+import AppFooter from '../layouts/AppFooter';
+import Banner from '../layouts/Banner';
 // import { AppState } from '../context/AppState';
-import AppContext from '../context/AppContext';
+import AppContext from '../../context/AppContext';
 
 // type CreateReportType = {
 //   name: string;

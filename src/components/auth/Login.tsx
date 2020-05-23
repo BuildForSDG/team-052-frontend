@@ -1,4 +1,4 @@
-import React, { FC, useContext, Fragment } from 'react';
+import React, { FC, useContext, Fragment, FormEvent } from 'react';
 import Navigation from '../layouts/Navigation';
 import Banner from '../layouts/Banner';
 import AppFooter from '../layouts/AppFooter';
@@ -10,12 +10,16 @@ const Login: FC<LoginProps> = ({ history }) => {
   const { onChange, login, loginUser, loadingLogin } = useContext(AppContext);
   const { email, password } = login;
   const isEnabled = () => email.length > 0 && password.length > 0;
+  const submitForm = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    loginUser(login, history);
+  };
   return (
     <Fragment>
       <Navigation backgroundColor={'rgb(1, 136, 73)'} variantColor={'light'} />
       <Banner />
       <div className="container mt-3 pt-3 pb-3 login-container">
-        <form onSubmit={(e) => loginUser(e, login, history)}>
+        <form onSubmit={submitForm}>
           <div className="row">
             <div className="col-12 mb-5">
               <input

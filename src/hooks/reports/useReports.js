@@ -6,7 +6,6 @@ import reportsReducer from '../../reducers/reports/reportsReducer';
 import * as types from '../../constants/ReportTypes';
 import { initialState } from '../../reducers/reports/reportsState';
 
-console.log(`${sessionStorage.getItem('ApiToken')}`);
 export const useReports = () => {
   const reportState = {
     name: '',
@@ -23,11 +22,9 @@ export const useReports = () => {
     });
   };
   const getReports = async () => {
-    console.log(`${URL.GET_AUTH_REPORTS_URL}`);
     dispatch({
       type: types.LOADING_STARTS,
     });
-    console.log(`Bearer ${sessionStorage.getItem('ApiToken')}`);
 
     try {
       const response = await axios.get(`${URL.GET_AUTH_REPORTS_URL}`, {
@@ -37,7 +34,6 @@ export const useReports = () => {
           Accept: 'application/json',
         },
       });
-      console.log(response.data);
       if (response.data) {
         dispatch({
           type: types.GET_ALL_REPORTS,
@@ -45,7 +41,6 @@ export const useReports = () => {
         });
       }
     } catch (e) {
-      console.log(e);
       if (e) {
         dispatch({
           type: types.LOADING_STOPS,

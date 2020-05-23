@@ -25,8 +25,7 @@ export const useAuthentication = () => {
     });
   };
 
-  const loginUser = async (e, params, history) => {
-    e.preventDefault();
+  const loginUser = async (params, history) => {
     dispatch({
       type: LOGIN_USER,
     });
