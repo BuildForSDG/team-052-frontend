@@ -31,10 +31,11 @@ export const useAuthentication = () => {
     });
     try {
       const response = await axios.post(`${LOGIN_URL}`, params);
+      console.log(response.data);
 
       if (response.data.message === 'login successful') {
         sessionStorage.setItem('ApiToken', response.data.data.api_token);
-        history.push(`${Urls.AUTH_HOME}`);
+        // history.push(`${Urls.AUTH_HOME}`);
       }
     } catch (error) {
       if (error.response.data) {
