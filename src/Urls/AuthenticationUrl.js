@@ -1,3 +1,3 @@
-// import { APP_URL } from './BaseUrl';
+import { APP_URL } from './BaseUrl';
 
-export const LOGIN_URL = `/auth/login`;
+export const LOGIN_URL = `${APP_URL}/auth/login`;
