@@ -70,3 +70,8 @@ p {
 .login-container {
   width: 30%;
 }
+
+.form {
+  /* background: red; */
+  width: 50%;
+}
