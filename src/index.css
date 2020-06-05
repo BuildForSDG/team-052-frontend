@@ -75,3 +75,18 @@ p {
   /* background: red; */
   width: 50%;
 }
+
+.submit-container {
+  width: 100%;
+  text-align: center;
+}
+
+.button {
+  background: rgb(1, 136, 73);
+  padding: 1%;
+  border: 1px;
+  border-radius: 9px;
+  color: white;
+  border-style: solid;
+  border-color: rgb(1, 136, 73);
+}
