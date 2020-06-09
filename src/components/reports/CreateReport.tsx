@@ -1,6 +1,6 @@
 import React, { FC, Fragment, useContext } from 'react';
 import Navigation from '../layouts/Navigation';
-import AppFooter from '../layouts/AppFooter';
+// import AppFooter from '../layouts/AppFooter';
 import Banner from '../layouts/Banner';
 // import { AppState } from '../context/AppState';
 import AppContext from '../../context/AppContext';
@@ -50,9 +50,9 @@ const CreateReport: FC = () => {
         </form>
       </div>
 
-      <div className="container">
+      {/* <div className="container">
         <AppFooter />
-      </div>
+      </div> */}
     </Fragment>
   );
 };

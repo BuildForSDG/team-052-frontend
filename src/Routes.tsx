@@ -7,12 +7,14 @@ import Urls from './utils/Paths';
 import Login from './components/auth/Login';
 import CreateAdmin from './components/admin/CreateAdmin';
 import { PrivateRoute } from './PrivateRoute';
+import HomeReports from './components/reports/HomeReports';
 
 const Routes = () => {
   return (
     <BrowserRouter>
       <Switch>
         <PrivateRoute exact path={Urls.AUTH_HOME} component={Reports} />
+        <Route exact path={Urls.HOME} component={HomeReports} />
         <Route exact path={Urls.CREATE_REPORT} component={CreateReport} />
         <Route exact path={Urls.LOGIN} component={Login} />
         <PrivateRoute exact path={Urls.CREATE_ADMIN} component={CreateAdmin} />
