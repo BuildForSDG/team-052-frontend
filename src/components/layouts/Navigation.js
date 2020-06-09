@@ -32,8 +32,8 @@ const Navigation = ({ variantColor, backgroundColor }) => {
                 </Link>
               </NavItem>
               <NavItem>
-                <Link to={Urls.CREATE_REPORT} style={{ color: 'beige' }}>
-                  Create Report
+                <Link to={Urls.CREATE_ADMIN} style={{ color: 'beige' }}>
+                  Create Admin
                 </Link>
               </NavItem>
               <NavItem>
