@@ -6,13 +6,13 @@ import AppContext from '../../context/AppContext';
 import { LoginProps } from '../../interfaces/LoginProps.interface';
 
 // eslint-disable-next-line react/prop-types
-const Login: FC<LoginProps> = ({ history }) => {
+const Login: FC<LoginProps> = ({ history, location }) => {
   const { onChange, login, loginUser, loadingLogin } = useContext(AppContext);
   const { email, password } = login;
   const isEnabled = () => email.length > 0 && password.length > 0;
   const submitForm = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    loginUser(login, history);
+    loginUser(login, history, location);
   };
   return (
     <Fragment>
