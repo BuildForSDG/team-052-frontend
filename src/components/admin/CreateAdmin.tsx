@@ -5,6 +5,7 @@ import { Form } from 'react-bootstrap';
 import AppContext from '../../context/AppContext';
 import { ToastContainer } from 'react-toastify';
 import { AdminProps } from '../../interfaces/AdminProps.interface';
+import Banner from '../layouts/Banner';
 
 const CreateAdmin: FC<AdminProps> = ({ history }) => {
   const { admin, createAdminChange, createAdmin, creatingAdmin } = useContext(AppContext);
@@ -15,7 +16,7 @@ const CreateAdmin: FC<AdminProps> = ({ history }) => {
   return (
     <Fragment>
       <Navigation backgroundColor={'rgb(1, 136, 73)'} variantColor={'light'} />
-      {/* <Banner /> */}
+      <Banner />
       <div className="container form">
         <Form
           onSubmit={(e: { preventDefault: () => void }) => {
@@ -25,7 +26,7 @@ const CreateAdmin: FC<AdminProps> = ({ history }) => {
         >
           <Form.Group controlId="formBasicEmail">
             <Form.Group controlId="formBasicPassword">
-              <Form.Label>Name</Form.Label>
+              <Form.Label className="form-label">Name</Form.Label>
               <Form.Control name="name" value={name} onChange={createAdminChange} type="text" placeholder="Name" />
             </Form.Group>
 
