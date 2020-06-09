@@ -1,7 +1,7 @@
 import React, { FC, useContext, Fragment, FormEvent } from 'react';
 import Navigation from '../layouts/Navigation';
 import Banner from '../layouts/Banner';
-import AppFooter from '../layouts/AppFooter';
+// import AppFooter from '../layouts/AppFooter';
 import AppContext from '../../context/AppContext';
 import { LoginProps } from '../../interfaces/LoginProps.interface';
 
@@ -58,9 +58,9 @@ const Login: FC<LoginProps> = ({ history }) => {
         </form>
       </div>
 
-      <div className="container">
+      {/* <div className="container">
         <AppFooter />
-      </div>
+      </div> */}
     </Fragment>
   );
 };

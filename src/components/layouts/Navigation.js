@@ -8,7 +8,7 @@ import Urls from '../../utils/Paths';
 
 const Navigation = ({ variantColor, backgroundColor }) => {
   return (
-    <div style={{ marginBottom: '2%', background: backgroundColor }}>
+    <div style={{ marginBottom: '0.4%', background: backgroundColor }}>
       <Navbar collapseOnSelect expand="lg" variant={variantColor}>
         <div style={{ width: '40%', fontSize: '1rem' }} className="ml-0">
           <Navbar.Brand>
