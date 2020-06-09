@@ -1,14 +1,14 @@
-import { render, cleanup, waitForElement } from '@testing-library/react';
+import { cleanup } from '@testing-library/react';
 // import axiosMock from 'axios';
-import useAuthentication from '../useAuthentication';
-import { renderHook, act } from '@testing-library/react-hooks';
+// import useAuthentication from '../useAuthentication';
+import { act } from '@testing-library/react-hooks';
 import { LOGIN_URL } from '../../../Urls/AuthenticationUrl';
 import axios from 'axios';
 jest.mock('axios');
 afterEach(cleanup);
 describe('login', () => {
   it('login a user', async () => {
-    const { result } = renderHook(() => useAuthentication());
+    // const { result } = renderHook(() => useAuthentication());
     const data = {
       email: 'me@me.com',
       password: 'password',

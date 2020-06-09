@@ -1,15 +1,14 @@
 import { createMemoryHistory } from 'history';
 import Login from '../Login';
-import React, { useContext } from 'react';
+import React from 'react';
 import { Router } from 'react-router-dom';
-import { render, fireEvent } from '@testing-library/react';
-import axios from 'axios';
-import { renderHook, act } from '@testing-library/react-hooks';
-import AppContext from '../../../context/AppContext';
+import { render } from '@testing-library/react';
+// import { renderHook, act } from '@testing-library/react-hooks';
+// import AppContext from '../../../context/AppContext';
 import { AppState } from '../../../context/AppState';
 // import { configure } from 'enzyme';
 // import Adapter from 'enzyme';
-import { mount } from 'enzyme';
+// import { mount } from 'enzyme';
 
 // configure({ adapter: new Adapter() });
 
@@ -17,9 +16,8 @@ describe('login component', () => {
   it('submits the the login form', () => {
     const history = createMemoryHistory();
     const LoginComponent = () => {
-      const { onChange, login, loginUser, loadingLogin } = useContext(AppContext);
+      // const { loginUser } = useContext(AppContext);
 
-      console.log(login);
       return (
         <AppState>
           <Router history={history}>
@@ -33,7 +31,7 @@ describe('login component', () => {
     //     <LoginComponent />
     //   </AppState>,
     // );
-    const { getByTestId, getByText } = render(<LoginComponent />);
+    const { getByText } = render(<LoginComponent />);
 
     // console.log(wrapper);
 
