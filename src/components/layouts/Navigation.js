@@ -23,25 +23,33 @@ const Navigation = ({ variantColor, backgroundColor }) => {
             className="text-center
             "
           >
-            <Nav>
-              <NavItem>
-                {/* <Nav.Link href="#deets"></Nav.Link> */}
-
-                <Link to={Urls.CREATE_REPORT} style={{ color: 'beige' }}>
-                  Create Report
-                </Link>
-              </NavItem>
-              <NavItem>
-                <Link to={Urls.CREATE_ADMIN} style={{ color: 'beige' }}>
-                  Create Admin
-                </Link>
-              </NavItem>
-              <NavItem>
-                <Link to={Urls.CREATE_REPORT} style={{ color: 'beige' }}>
-                  Create Report
-                </Link>
-              </NavItem>
-            </Nav>
+            {sessionStorage.getItem('ApiToken') ? (
+              <Nav>
+                <NavItem>
+                  <Link to={Urls.CREATE_REPORT} style={{ color: 'beige' }}>
+                    Create Report
+                  </Link>
+                </NavItem>
+                <NavItem>
+                  <Link to={Urls.CREATE_ADMIN} style={{ color: 'beige' }}>
+                    Create Admin
+                  </Link>
+                </NavItem>
+                <NavItem>
+                  <Link to="#" style={{ color: 'beige' }}>
+                    View Admin
+                  </Link>
+                </NavItem>
+              </Nav>
+            ) : (
+              <Nav>
+                <NavItem>
+                  <Link to={Urls.CREATE_REPORT} style={{ color: 'beige' }}>
+                    Create Report
+                  </Link>
+                </NavItem>
+              </Nav>
+            )}
           </div>
         </Navbar.Collapse>
       </Navbar>
