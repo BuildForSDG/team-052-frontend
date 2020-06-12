@@ -1,6 +1,6 @@
 /* eslint-disable import/no-named-as-default */
 import axios from 'axios';
-import { useReducer, useState, useEffect } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import * as URL from '../../Urls/ReportUrl';
 import reportsReducer from '../../reducers/reports/reportsReducer';
 import * as types from '../../constants/ReportTypes';
@@ -58,37 +58,26 @@ export const useReports = () => {
       type: types.LOADING_STARTS,
     });
     try {
-      const response = await axios.get(
-        `${URL.GET_GUEST_REPORTS_URL}`,
-        //   {
-        //   headers: {
-        //     Authorization: `Bearer ${sessionStorage.getItem('ApiToken')}`,
-        //     'Content-Type': 'application/json',
-        //     Accept: 'application/json',
-        //   },
-        // }
-      );
-      console.log(response.data);
-      console.log(response.data.data);
-
-      if (response.data) {
-        dispatch({
-          type: types.GET_GUEST_REPORTS,
-          payload: response.data.data,
-        });
-      }
+      return await axios.get(`${URL.GET_GUEST_REPORTS_URL}`);
     } catch (e) {
-      if (e) {
-        dispatch({
-          type: types.LOADING_STOPS,
-        });
-      }
+      return e;
     }
   };
 
   useEffect(() => {
     getReports();
-    getGuestsReports();
+    getGuestsReports()
+      .then((data) => {
+        dispatch({
+          type: types.GET_GUEST_REPORTS,
+          payload: data.data.data,
+        });
+      })
+      .catch(() => {
+        dispatch({
+          type: types.LOADING_STOPS,
+        });
+      });
   }, []);
   console.log(guestReports);
   return { reports, loading, onChange, report, guestReports };
