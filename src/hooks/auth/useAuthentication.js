@@ -1,6 +1,6 @@
 import { useState, useReducer } from 'react';
 import axios from 'axios';
-import { LOGIN_URL } from '../../Urls/AuthenticationUrl';
+import { LOGIN_URL, LOGOUT_URL } from '../../Urls/AuthenticationUrl';
 import authenticationReducer from '../../reducers/authentication/authenticationReducer';
 import { LOGIN_USER } from '../../constants/AuthenticationTypes';
 import { LOADING_STOPS } from '../../constants/ReportTypes';
@@ -40,7 +40,6 @@ export const useAuthentication = () => {
         history.push(path);
       }
     } catch (error) {
-      console.log(error);
       if (error.response) {
         if (error.response.data.errors) {
           // alert(error.response.data.errors.email);
@@ -56,7 +55,18 @@ export const useAuthentication = () => {
     }
   };
 
-  return { onChange, login, loginUser, loadingLogin };
+  const logoutUser = async (history) => {
+    try {
+      const response = await axios.post(`${LOGOUT_URL}`);
+      if (response.data.message === 'logout successful') {
+        sessionStorage.removeItem('ApiToken');
+        history.push(`${Urls.HOME}`);
+      }
+    } catch (e) {
+      toast.error('Something went wrong!');
+    }
+  };
+  return { onChange, login, loginUser, loadingLogin, logoutUser };
 };
 
 export default useAuthentication;

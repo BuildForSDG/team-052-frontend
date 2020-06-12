@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useContext, FC } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { NavItem } from '../../styles/NavStyles';
 import Urls from '../../utils/Paths';
-
-const Navigation = ({ variantColor, backgroundColor }) => {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import AppContext from '../../context/AppContext';
+import { NavigationProps } from '../../interfaces/NavigationProps';
+import { withRouter } from 'react-router';
+// eslint-disable-next-line react/prop-types
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+// eslint-disable-next-line react/prop-types
+const Navigation: FC<NavigationProps> = ({ variantColor, backgroundColor, history }) => {
+  const { logoutUser } = useContext(AppContext);
   return (
     <div style={{ marginBottom: '0.4%', background: backgroundColor }}>
-      <Navbar collapseOnSelect expand="lg" variant={variantColor}>
+      <Navbar collapseOnSelect expand="lg">
         <div style={{ width: '40%', fontSize: '1rem' }} className="ml-0">
           <Navbar.Brand>
             <Link style={{ color: 'black' }} to={Urls.HOME}>
@@ -36,10 +43,13 @@ const Navigation = ({ variantColor, backgroundColor }) => {
                   </Link>
                 </NavItem>
                 <NavItem>
-                  <Link to="#" style={{ color: 'beige' }}>
-                    View Admin
+                  <Link to="" style={{ color: 'beige' }}>
+                    Dummy
                   </Link>
                 </NavItem>
+                <div className="logout" onClick={() => logoutUser(history)}>
+                  <FontAwesomeIcon icon={faSignOutAlt} />
+                </div>
               </Nav>
             ) : (
               <Nav>
@@ -57,8 +67,9 @@ const Navigation = ({ variantColor, backgroundColor }) => {
   );
 };
 
-Navigation.propTypes = {
-  variantColor: PropTypes.string,
-  backgroundColor: PropTypes.string,
-};
-export default Navigation;
+// Navigation.propTypes = {
+//   variantColor: PropTypes.string,
+//   backgroundColor: PropTypes.string,
+//   history: PropTypes.shape(),
+// };
+export default withRouter(Navigation);

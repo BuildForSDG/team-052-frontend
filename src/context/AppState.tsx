@@ -12,7 +12,7 @@ interface AppProps {
 export const AppState = ({ children }: AppProps) => {
   const { Provider } = AppContext;
   const { reports, loading, report } = useReports();
-  const { onChange, login, loginUser, loadingLogin } = useAuthentication();
+  const { onChange, login, loginUser, loadingLogin, logoutUser } = useAuthentication();
   const { admin, createAdminChange, createAdmin, creatingAdmin } = useAdmin();
   return (
     <Provider
@@ -28,6 +28,7 @@ export const AppState = ({ children }: AppProps) => {
         createAdminChange,
         createAdmin,
         creatingAdmin,
+        logoutUser,
       }}
     >
       {children}
