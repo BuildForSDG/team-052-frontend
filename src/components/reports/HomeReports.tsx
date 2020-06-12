@@ -8,7 +8,6 @@ import useReports from '../../hooks/reports/useReports';
 
 const HomeReports: FC = () => {
   const { guestReports, loading } = useReports();
-  console.log(guestReports);
 
   // {
   //   "note": "Alice to herself, 'I don't see how the game began. Alice gave a little timidly, for she was to.",

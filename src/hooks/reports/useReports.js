@@ -79,7 +79,6 @@ export const useReports = () => {
         });
       });
   }, []);
-  console.log(guestReports);
   return { reports, loading, onChange, report, guestReports };
 };
 
