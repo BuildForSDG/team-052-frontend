@@ -1,6 +1,6 @@
 /* eslint-disable import/no-named-as-default */
 import axios from 'axios';
-import { useReducer, useState, useEffect } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import * as URL from '../../Urls/ReportUrl';
 import reportsReducer from '../../reducers/reports/reportsReducer';
 import * as types from '../../constants/ReportTypes';
@@ -11,9 +11,10 @@ export const useReports = () => {
     description: '',
     location: '',
   };
-  const [{ reports, loading }, dispatch] = useReducer(reportsReducer, {
+  const [{ reports, loading, guestReports }, dispatch] = useReducer(reportsReducer, {
     loading: true,
     reports: [],
+    guestReports: [],
   });
   const [report, setReport] = useState(reportState);
   const onChange = (e) => {
@@ -52,11 +53,33 @@ export const useReports = () => {
     }
   };
 
+  const getGuestsReports = async () => {
+    dispatch({
+      type: types.LOADING_STARTS,
+    });
+    try {
+      return await axios.get(`${URL.GET_GUEST_REPORTS_URL}`);
+    } catch (e) {
+      return e;
+    }
+  };
+
   useEffect(() => {
     getReports();
+    getGuestsReports()
+      .then((data) => {
+        dispatch({
+          type: types.GET_GUEST_REPORTS,
+          payload: data.data.data,
+        });
+      })
+      .catch(() => {
+        dispatch({
+          type: types.LOADING_STOPS,
+        });
+      });
   }, []);
-
-  return { reports, loading, onChange, report };
+  return { reports, loading, onChange, report, guestReports };
 };
 
 export default useReports;
