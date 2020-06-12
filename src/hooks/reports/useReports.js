@@ -4,7 +4,6 @@ import { useReducer, useState, useEffect } from 'react';
 import * as URL from '../../Urls/ReportUrl';
 import reportsReducer from '../../reducers/reports/reportsReducer';
 import * as types from '../../constants/ReportTypes';
-import { initialState } from '../../reducers/reports/reportsState';
 
 export const useReports = () => {
   const reportState = {
@@ -12,7 +11,10 @@ export const useReports = () => {
     description: '',
     location: '',
   };
-  const [{ reports, loading }, dispatch] = useReducer(reportsReducer, initialState);
+  const [{ reports, loading }, dispatch] = useReducer(reportsReducer, {
+    loading: true,
+    reports: [],
+  });
   const [report, setReport] = useState(reportState);
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -21,6 +23,7 @@ export const useReports = () => {
       [name]: value,
     });
   };
+
   const getReports = async () => {
     dispatch({
       type: types.LOADING_STARTS,
@@ -48,6 +51,7 @@ export const useReports = () => {
       }
     }
   };
+
   useEffect(() => {
     getReports();
   }, []);

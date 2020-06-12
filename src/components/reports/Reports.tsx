@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
-import React, { Fragment, useContext, FC } from 'react';
+import React, { Fragment, FC } from 'react';
 import Navigation from '../layouts/Navigation';
 import { ReportsContainer } from '../../styles/ReportsStyle';
 import AppFooter from '../layouts/AppFooter';
-import AppContext from '../../context/AppContext';
+import useReports from '../../hooks/reports/useReports';
 
 const Reports: FC = () => {
-  const { reports, loading } = useContext(AppContext);
+  const { reports, loading } = useReports();
 
   // {
   //   "note": "Alice to herself, 'I don't see how the game began. Alice gave a little timidly, for she was to.",
