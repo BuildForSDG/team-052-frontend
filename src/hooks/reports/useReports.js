@@ -11,9 +11,10 @@ export const useReports = () => {
     description: '',
     location: '',
   };
-  const [{ reports, loading }, dispatch] = useReducer(reportsReducer, {
+  const [{ reports, loading, guestReports }, dispatch] = useReducer(reportsReducer, {
     loading: true,
     reports: [],
+    guestReports: [],
   });
   const [report, setReport] = useState(reportState);
   const onChange = (e) => {
@@ -52,11 +53,45 @@ export const useReports = () => {
     }
   };
 
+  const getGuestsReports = async () => {
+    dispatch({
+      type: types.LOADING_STARTS,
+    });
+    try {
+      const response = await axios.get(
+        `${URL.GET_GUEST_REPORTS_URL}`,
+        //   {
+        //   headers: {
+        //     Authorization: `Bearer ${sessionStorage.getItem('ApiToken')}`,
+        //     'Content-Type': 'application/json',
+        //     Accept: 'application/json',
+        //   },
+        // }
+      );
+      console.log(response.data);
+      console.log(response.data.data);
+
+      if (response.data) {
+        dispatch({
+          type: types.GET_GUEST_REPORTS,
+          payload: response.data.data,
+        });
+      }
+    } catch (e) {
+      if (e) {
+        dispatch({
+          type: types.LOADING_STOPS,
+        });
+      }
+    }
+  };
+
   useEffect(() => {
     getReports();
+    getGuestsReports();
   }, []);
-
-  return { reports, loading, onChange, report };
+  console.log(guestReports);
+  return { reports, loading, onChange, report, guestReports };
 };
 
 export default useReports;

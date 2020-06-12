@@ -3,11 +3,12 @@
 import React, { Fragment, FC } from 'react';
 import Navigation from '../layouts/Navigation';
 import { ReportsContainer } from '../../styles/ReportsStyle';
-// import AppFooter from '../layouts/AppFooter';
-// import AppContext from '../../context/AppContext';
+import AppFooter from '../layouts/AppFooter';
+import useReports from '../../hooks/reports/useReports';
 
 const HomeReports: FC = () => {
-  //   const { reports, loading } = useContext(AppContext);
+  const { guestReports, loading } = useReports();
+  console.log(guestReports);
 
   // {
   //   "note": "Alice to herself, 'I don't see how the game began. Alice gave a little timidly, for she was to.",
@@ -16,34 +17,33 @@ const HomeReports: FC = () => {
   //   "status_updated_at": "2020-05-13T16:16:16.000000Z"
   //   },
 
-  const displayReports = () => (
-    // reports && reports.length
-    //   ? reports.map(
-    //       (report: { id: string | number; visual_image: string; title: string; status: string; location: string }) => (
-    <div className="col-md-6 mb-4" style={{ width: '18rem' }}>
-      <div className="card shadow">
-        <div className="reports-image m-4">
-          <img src="https://via.placeholder.com/150" className="card-img-top" />
-        </div>
-        <div className="card-body pt-2">
-          {/* <div style={{ display: 'flex' }}> */}
-          <p className="card-title text-center">
-            <strong>Title</strong>
-          </p>
-          <hr />
+  const displayReports = () =>
+    guestReports && guestReports.length
+      ? guestReports.map(
+          (report: { id: string | number; visual_image: string; title: string; status: string; location: string }) => (
+            <div key={report.id} className="col-md-6 mb-4" style={{ width: '18rem' }}>
+              <div className="card shadow">
+                <div className="reports-image m-4">
+                  <img src={report.visual_image} className="card-img-top" />
+                </div>
+                <div className="card-body pt-2">
+                  {/* <div style={{ display: 'flex' }}> */}
+                  <p className="card-title text-center">
+                    <strong>{report.title}</strong>
+                  </p>
+                  <hr />
 
-          <div style={{ display: 'flex' }}>
-            <p>STATUS</p>: <span className="text-info">status</span>
-            {/* <p className="te/zxt-right ml-auto">Location: </p> */}
-            <span className="text-right ml-auto">Lgos/Ibadan</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-  //       ),
-  //     )
-  //   : 'no reports';
+                  <div style={{ display: 'flex' }}>
+                    <p>STATUS</p>: <span className="text-info">{report.status}</span>
+                    {/* <p className="te/zxt-right ml-auto">Location: </p> */}
+                    <span className="text-right ml-auto">{report.location}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ),
+        )
+      : 'no reports';
 
   return (
     <Fragment>
@@ -52,14 +52,14 @@ const HomeReports: FC = () => {
       <div className="container">
         <ReportsContainer>
           <div className="row">
-            {/* {loading ? (
+            {loading ? (
               <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" />
-            ) : ( */}
-            {displayReports()}
-            {/* )} */}
+            ) : (
+              displayReports()
+            )}
           </div>
         </ReportsContainer>
-        {/* <AppFooter /> */}
+        <AppFooter />
       </div>
     </Fragment>
   );
