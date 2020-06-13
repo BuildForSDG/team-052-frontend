@@ -4,6 +4,8 @@ import { useEffect, useReducer, useState } from 'react';
 import * as URL from '../../Urls/ReportUrl';
 import reportsReducer from '../../reducers/reports/reportsReducer';
 import * as types from '../../constants/ReportTypes';
+import { GET_GUEST_REPORTS } from '../../constants/ReportTypes';
+import { toast } from 'react-toastify';
 
 export const useReports = () => {
   const reportState = {
@@ -63,6 +65,38 @@ export const useReports = () => {
       return e;
     }
   };
+  const getFilteredReport = async (params) => {
+    dispatch({
+      type: types.LOADING_STARTS,
+    });
+    if (sessionStorage.getItem('ApiToken')) {
+      try {
+        const response = await axios.get(`${URL.GET_AUTH_REPORTS_URL}?query=${params}`);
+        console.log(response);
+      } catch (e) {
+        console.log(e);
+      }
+    } else {
+      try {
+        const response = await axios.get(`${URL.GET_GUEST_REPORTS_URL}?status=${params}`);
+        if (response.data) {
+          dispatch({
+            type: GET_GUEST_REPORTS,
+            payload: response.data.data,
+          });
+        }
+        toast.error(`Something went wrong!`);
+        dispatch({
+          type: types.LOADING_STOPS,
+        });
+      } catch (e) {
+        toast.error(`Something went wrong!`);
+        dispatch({
+          type: types.LOADING_STOPS,
+        });
+      }
+    }
+  };
 
   useEffect(() => {
     getReports();
@@ -79,7 +113,7 @@ export const useReports = () => {
         });
       });
   }, []);
-  return { reports, loading, onChange, report, guestReports };
+  return { reports, loading, onChange, report, guestReports, getFilteredReport };
 };
 
 export default useReports;

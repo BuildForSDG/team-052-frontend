@@ -89,14 +89,26 @@ p {
 .button {
   background: rgb(1, 136, 73);
   padding: 1%;
-  border: 1px;
   border-radius: 9px;
   color: white;
-  border-style: solid;
-  border-color: rgb(1, 136, 73);
+  border: 1px solid rgb(1, 136, 73);
+}
+
+.body{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+.filter{
+  margin-top: 8%;
+  /*margin-bottom: 3%;*/
+}
+.image{
+  height: 20em;
 }
 
 .logout {
   color: white;
   cursor: pointer;
 }
+
+
