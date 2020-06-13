@@ -12,6 +12,7 @@ export const useReports = () => {
     name: '',
     description: '',
     location: '',
+    loaded: 0
   };
   const [{ reports, loading, guestReports }, dispatch] = useReducer(reportsReducer, {
     loading: true,
@@ -19,12 +20,18 @@ export const useReports = () => {
     guestReports: [],
   });
   const [report, setReport] = useState(reportState);
-  const onChange = (e) => {
+  const [file, setFile] = useState(null);
+  const [loadingReport, setLoadingReport] = useState(false)
+  const onReportChange = (e) => {
     const { name, value } = e.target;
     setReport({
       ...report,
       [name]: value,
     });
+  };
+  const onFileChange = (e) => {
+    const { files } = e.target;
+    setFile(files[0]);
   };
 
   const getReports = async () => {
@@ -72,9 +79,7 @@ export const useReports = () => {
     if (sessionStorage.getItem('ApiToken')) {
       try {
         const response = await axios.get(`${URL.GET_AUTH_REPORTS_URL}?query=${params}`);
-        console.log(response);
       } catch (e) {
-        console.log(e);
       }
     } else {
       try {
@@ -97,6 +102,25 @@ export const useReports = () => {
       }
     }
   };
+  const createReport = async (params, history) => {
+    setLoadingReport(true)
+    try {
+      const response = await axios.post(`${URL.GET_AUTH_REPORTS_URL}`, params)
+      if(response.data.message){
+        setLoadingReport(false)
+        toast.success('Incident Reported!')
+        setReport(reportState);
+        setFile(null)
+        setTimeout(() => {
+          history.push('/')
+        }, 2000)
+      }
+      setLoadingReport(false)
+    } catch (e) {
+      setLoadingReport(false)
+      toast.info('Something went wrong!')
+    }
+  };
 
   useEffect(() => {
     getReports();
@@ -113,7 +137,18 @@ export const useReports = () => {
         });
       });
   }, []);
-  return { reports, loading, onChange, report, guestReports, getFilteredReport };
+  return {
+    reports,
+    loading,
+    onReportChange,
+    report,
+    guestReports,
+    getFilteredReport,
+    createReport,
+    onFileChange,
+    file,
+    loadingReport
+  };
 };
 
 export default useReports;
