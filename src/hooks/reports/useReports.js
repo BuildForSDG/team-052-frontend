@@ -8,8 +8,10 @@ import { GET_GUEST_REPORTS } from '../../constants/ReportTypes';
 import { toast } from 'react-toastify';
 import { GET_ALL_REPORTS } from '../../constants/ReportTypes';
 import { GET_AUTH_REPORTS_URL } from '../../Urls/ReportUrl';
+// import { useHistory } from "react-router-dom";
 
-export const useReports = (history) => {
+export const useReports = () => {
+  // const history = useHistory();
   const reportState = {
     name: '',
     description: '',
@@ -64,7 +66,7 @@ export const useReports = (history) => {
       return e;
     }
   };
-  const getFilteredReport = async (params) => {
+  const getFilteredReport = async (params, history) => {
     dispatch({
       type: types.LOADING_STARTS,
     });
@@ -78,7 +80,6 @@ export const useReports = (history) => {
             Accept: 'application/json',
           },
         });
-        console.log(response);
         if (response.data) {
           dispatch({
             type: GET_ALL_REPORTS,
@@ -91,16 +92,15 @@ export const useReports = (history) => {
           });
         }
       } catch (e) {
-        // console.log(e.response);
         // data: {message: "unauthorized."}
-        if (e.response.data.message === 'unauthorized') {
+        if (e.response.data.message === 'unauthorized.') {
           toast.error(`Token Expired, Login Again!`);
           dispatch({
             type: types.LOADING_STOPS,
           });
           setTimeout(() => {
-            history.push('/login')
-          }, 2000)
+            history.push('/login');
+          }, 2000);
         } else {
           toast.error(`Something went wrong!`);
           dispatch({
@@ -149,7 +149,7 @@ export const useReports = (history) => {
     }
   };
   const getReport = async (param) => {
-    console.log(param);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const response = await axios.get(`${URL.GET_AUTH_REPORTS_URL}/${param}`, {
       headers: {
         Authorization: `Bearer ${sessionStorage.getItem('ApiToken')}`,
@@ -158,17 +158,24 @@ export const useReports = (history) => {
       },
     });
   };
-  const updateStatus = async (id, value) => {
+  const updateStatus = async (id, value, history) => {
     const data = {
       status: value,
+      _method: 'PATCH',
     };
-    console.log(data);
-    console.log(`${GET_AUTH_REPORTS_URL}/${id}`);
     try {
-      const response = await axios.patch(`${GET_AUTH_REPORTS_URL}/${id}`, data);
-      console.log(response);
+      const response = await axios.post(`${GET_AUTH_REPORTS_URL}/${id}`, data, {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem('ApiToken')}`,
+        },
+      });
+      if (response.status === 204) {
+        history.push('/all-reports');
+      } else {
+        toast.info('Unable to update status');
+      }
     } catch (error) {
-      console.log(error);
+      toast.error('Something went wrong');
     }
   };
 

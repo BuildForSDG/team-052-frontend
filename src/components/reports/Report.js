@@ -30,7 +30,7 @@ const Report = ({ history }) => {
             <div key={one.id} className="col-md-12 mb-4" style={{ width: '18rem' }}>
               <div className="card" style={{ border: 'white' }}>
                 <div className="reports-image m-4">
-                  <img src="https://via.placeholder.com/150" className="card-img-top image" />
+                  <img src={one.visual_image} className="card-img-top image" />
                 </div>
                 <div className="card-body pt-2">
                   {/* <div style={{ display: 'flex' }}> */}
@@ -43,7 +43,7 @@ const Report = ({ history }) => {
                     <div style={{ display: 'flex' }}>
                       <p>STATUS</p>- <span className="text-info">{one.status}</span>
                       {/*<div className="update-status">*/}
-                      <select onChange={(e) => updateStatus(one.id, e.target.value)} className="update-status">
+                      <select onChange={(e) => updateStatus(one.id, e.target.value, history)} className="update-status">
                         <option>Update Status</option>
                         <option value="pending">Pending</option>
                         <option value="acknowledged">Acknowledged</option>

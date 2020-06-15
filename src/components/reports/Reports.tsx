@@ -3,14 +3,14 @@
 import React, { Fragment, FC } from 'react';
 import Navigation from '../layouts/Navigation';
 import { ReportsContainer } from '../../styles/ReportsStyle';
-import AppFooter from '../layouts/AppFooter';
 import useReports from '../../hooks/reports/useReports';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { ReportsProps } from '../../interfaces/ReportsProps.interface';
 import { Link } from 'react-router-dom';
 
+// eslint-disable-next-line react/prop-types
 const Reports: FC<ReportsProps> = ({ history }) => {
-  const { reports, loading, getFilteredReport, getReport } = useReports();
+  const { reports, loading, getFilteredReport } = useReports();
 
   // {
   //   "note": "Alice to herself, 'I don't see how the game began. Alice gave a little timidly, for she was to.",
@@ -71,9 +71,9 @@ const Reports: FC<ReportsProps> = ({ history }) => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item onClick={() => getFilteredReport('pending')}>Pending</Dropdown.Item>
-              <Dropdown.Item onClick={() => getFilteredReport('enroute')}>Enroute</Dropdown.Item>
-              <Dropdown.Item onClick={() => getFilteredReport('acknowledged')}>Acknowledged</Dropdown.Item>
+              <Dropdown.Item onClick={() => getFilteredReport('pending', history)}>Pending</Dropdown.Item>
+              <Dropdown.Item onClick={() => getFilteredReport('enroute', history)}>Enroute</Dropdown.Item>
+              <Dropdown.Item onClick={() => getFilteredReport('acknowledged', history)}>Acknowledged</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </div>

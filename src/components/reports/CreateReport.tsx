@@ -27,7 +27,7 @@ const CreateReport: FC<CreateReportProps> = ({ history }) => {
     data.append('visual_image', file);
     data.append('location', location);
     data.append('title', name);
-    data.append('note', description);
+    // data.append('note', description);
 
     createReport(data, history);
     // loginUser(login, history, location);
@@ -51,17 +51,17 @@ const CreateReport: FC<CreateReportProps> = ({ history }) => {
               />
             </div>
 
-            <div className="col-12 mb-5">
-              <textarea
-                className="form-control"
-                name="description"
-                value={description}
-                onChange={onReportChange}
-                id="exampleFormControlTextarea1"
-                rows={3}
-                placeholder="Short description of the incident"
-              />
-            </div>
+            {/*<div className="col-12 mb-5">*/}
+            {/*  <textarea*/}
+            {/*    className="form-control"*/}
+            {/*    name="description"*/}
+            {/*    value={description}*/}
+            {/*    onChange={onReportChange}*/}
+            {/*    id="exampleFormControlTextarea1"*/}
+            {/*    rows={3}*/}
+            {/*    placeholder="Short description of the incident"*/}
+            {/*  />*/}
+            {/*</div>*/}
             <div className="col-12 mb-5">
               <input type="file" name="file" onChange={onFileChange} className="form-control" />
             </div>
