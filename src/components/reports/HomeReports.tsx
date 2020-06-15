@@ -66,7 +66,7 @@ const HomeReports: FC = () => {
               )}
             </div>
           </ReportsContainer>
-          <AppFooter />
+          {/* <AppFooter /> */}
         </div>
       </div>
     </Fragment>

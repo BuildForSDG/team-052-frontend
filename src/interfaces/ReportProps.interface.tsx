@@ -10,4 +10,7 @@ import { RouteComponentProps } from 'react-router-dom';
 // }
 export interface ReportProps extends RouteComponentProps<any> {
   /* other props  */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  report?: any;
+  one?: any
 }

@@ -6,7 +6,6 @@ import { ReportsContainer } from '../../styles/ReportsStyle';
 import AppFooter from '../layouts/AppFooter';
 import useReports from '../../hooks/reports/useReports';
 import Dropdown from 'react-bootstrap/Dropdown';
-import Urls from '../../utils/Paths';
 import { ReportsProps } from '../../interfaces/ReportsProps.interface';
 import { Link } from 'react-router-dom';
 
@@ -89,7 +88,7 @@ const Reports: FC<ReportsProps> = ({ history }) => {
               )}
             </div>
           </ReportsContainer>
-          <AppFooter />
+          {/*<AppFooter />*/}
         </div>
       </div>
     </Fragment>

@@ -58,6 +58,12 @@ const Navigation: FC<NavigationProps> = ({ variantColor, backgroundColor, histor
                     Create Report
                   </Link>
                 </NavItem>
+
+                <NavItem>
+                  <Link to={Urls.LOGIN} style={{ color: 'beige' }}>
+                    Login
+                  </Link>
+                </NavItem>
               </Nav>
             )}
           </div>

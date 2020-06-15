@@ -7,8 +7,9 @@ import * as types from '../../constants/ReportTypes';
 import { GET_GUEST_REPORTS } from '../../constants/ReportTypes';
 import { toast } from 'react-toastify';
 import { GET_ALL_REPORTS } from '../../constants/ReportTypes';
+import { GET_AUTH_REPORTS_URL } from '../../Urls/ReportUrl';
 
-export const useReports = () => {
+export const useReports = (history) => {
   const reportState = {
     name: '',
     description: '',
@@ -41,25 +42,15 @@ export const useReports = () => {
     });
 
     try {
-      const response = await axios.get(`${URL.GET_AUTH_REPORTS_URL}`, {
+      return await axios.get(`${URL.GET_AUTH_REPORTS_URL}`, {
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem('ApiToken')}`,
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
       });
-      if (response.data) {
-        dispatch({
-          type: types.GET_ALL_REPORTS,
-          payload: response.data.data,
-        });
-      }
     } catch (e) {
-      if (e) {
-        dispatch({
-          type: types.LOADING_STOPS,
-        });
-      }
+      return e;
     }
   };
 
@@ -77,6 +68,7 @@ export const useReports = () => {
     dispatch({
       type: types.LOADING_STARTS,
     });
+
     if (sessionStorage.getItem('ApiToken')) {
       try {
         const response = await axios.get(`${URL.GET_AUTH_REPORTS_URL}?status=${params}`, {
@@ -86,6 +78,7 @@ export const useReports = () => {
             Accept: 'application/json',
           },
         });
+        console.log(response);
         if (response.data) {
           dispatch({
             type: GET_ALL_REPORTS,
@@ -98,10 +91,22 @@ export const useReports = () => {
           });
         }
       } catch (e) {
-        toast.error(`Something went wrong!`);
-        dispatch({
-          type: types.LOADING_STOPS,
-        });
+        // console.log(e.response);
+        // data: {message: "unauthorized."}
+        if (e.response.data.message === 'unauthorized') {
+          toast.error(`Token Expired, Login Again!`);
+          dispatch({
+            type: types.LOADING_STOPS,
+          });
+          setTimeout(() => {
+            history.push('/login')
+          }, 2000)
+        } else {
+          toast.error(`Something went wrong!`);
+          dispatch({
+            type: types.LOADING_STOPS,
+          });
+        }
       }
     } else {
       try {
@@ -153,9 +158,33 @@ export const useReports = () => {
       },
     });
   };
+  const updateStatus = async (id, value) => {
+    const data = {
+      status: value,
+    };
+    console.log(data);
+    console.log(`${GET_AUTH_REPORTS_URL}/${id}`);
+    try {
+      const response = await axios.patch(`${GET_AUTH_REPORTS_URL}/${id}`, data);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
-    getReports();
+    getReports()
+      .then((data) => {
+        dispatch({
+          type: types.GET_ALL_REPORTS,
+          payload: data.data.data,
+        });
+      })
+      .catch(() => {
+        dispatch({
+          type: types.LOADING_STOPS,
+        });
+      });
     getGuestsReports()
       .then((data) => {
         dispatch({
@@ -181,6 +210,7 @@ export const useReports = () => {
     file,
     loadingReport,
     getReport,
+    updateStatus,
   };
 };
 
