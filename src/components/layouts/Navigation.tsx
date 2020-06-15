@@ -19,7 +19,7 @@ const Navigation: FC<NavigationProps> = ({ variantColor, backgroundColor, histor
       <Navbar collapseOnSelect expand="lg">
         <div style={{ width: '40%', fontSize: '1rem' }} className="ml-0">
           <Navbar.Brand>
-            <Link style={{ color: 'black' }} to={Urls.HOME}>
+            <Link style={{ color: 'black' }} to={sessionStorage.getItem('ApiToken') ? Urls.AUTH_HOME : Urls.HOME}>
               PROJECT-052
             </Link>
           </Navbar.Brand>

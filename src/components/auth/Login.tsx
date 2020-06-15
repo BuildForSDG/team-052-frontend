@@ -18,7 +18,7 @@ const Login: FC<LoginProps> = ({ history, location }) => {
   return (
     <Fragment>
       <Navigation backgroundColor={'rgb(1, 136, 73)'} variantColor={'light'} />
-      <Banner />
+      {/*<Banner />*/}
       <div className="container mt-3 pt-3 pb-3 login-container">
         <form onSubmit={submitForm}>
           <div className="row">

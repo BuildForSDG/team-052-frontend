@@ -16,7 +16,7 @@ import { ToastContainer } from 'react-toastify';
 //   report: CreateReportType[];
 // };
 
-const CreateReport: FC<CreateReportProps> = ({history}) => {
+const CreateReport: FC<CreateReportProps> = ({ history }) => {
   const { report, createReport, onReportChange, onFileChange, file, loadingReport } = useContext(AppContext);
   // const { onChange } = useReports();
   const { location, name, description, loaded } = report;
@@ -94,7 +94,7 @@ const CreateReport: FC<CreateReportProps> = ({history}) => {
       {/* <div className="container">
         <AppFooter />
       </div> */}
-      <ToastContainer/>
+      <ToastContainer />
     </Fragment>
   );
 };

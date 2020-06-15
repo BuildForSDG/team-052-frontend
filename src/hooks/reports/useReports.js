@@ -6,13 +6,14 @@ import reportsReducer from '../../reducers/reports/reportsReducer';
 import * as types from '../../constants/ReportTypes';
 import { GET_GUEST_REPORTS } from '../../constants/ReportTypes';
 import { toast } from 'react-toastify';
+import { GET_ALL_REPORTS } from '../../constants/ReportTypes';
 
 export const useReports = () => {
   const reportState = {
     name: '',
     description: '',
     location: '',
-    loaded: 0
+    loaded: 0,
   };
   const [{ reports, loading, guestReports }, dispatch] = useReducer(reportsReducer, {
     loading: true,
@@ -21,7 +22,7 @@ export const useReports = () => {
   });
   const [report, setReport] = useState(reportState);
   const [file, setFile] = useState(null);
-  const [loadingReport, setLoadingReport] = useState(false)
+  const [loadingReport, setLoadingReport] = useState(false);
   const onReportChange = (e) => {
     const { name, value } = e.target;
     setReport({
@@ -78,8 +79,29 @@ export const useReports = () => {
     });
     if (sessionStorage.getItem('ApiToken')) {
       try {
-        const response = await axios.get(`${URL.GET_AUTH_REPORTS_URL}?query=${params}`);
+        const response = await axios.get(`${URL.GET_AUTH_REPORTS_URL}?status=${params}`, {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem('ApiToken')}`,
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+        });
+        if (response.data) {
+          dispatch({
+            type: GET_ALL_REPORTS,
+            payload: response.data.data,
+          });
+        } else {
+          toast.error(`Unable to get reports!`);
+          dispatch({
+            type: types.LOADING_STOPS,
+          });
+        }
       } catch (e) {
+        toast.error(`Something went wrong!`);
+        dispatch({
+          type: types.LOADING_STOPS,
+        });
       }
     } else {
       try {
@@ -103,23 +125,33 @@ export const useReports = () => {
     }
   };
   const createReport = async (params, history) => {
-    setLoadingReport(true)
+    setLoadingReport(true);
     try {
-      const response = await axios.post(`${URL.GET_AUTH_REPORTS_URL}`, params)
-      if(response.data.message){
-        setLoadingReport(false)
-        toast.success('Incident Reported!')
+      const response = await axios.post(`${URL.GET_AUTH_REPORTS_URL}`, params);
+      if (response.data.message) {
+        setLoadingReport(false);
+        toast.success('Incident Reported!');
         setReport(reportState);
-        setFile(null)
+        setFile(null);
         setTimeout(() => {
-          history.push('/')
-        }, 2000)
+          history.push('/');
+        }, 2000);
       }
-      setLoadingReport(false)
+      setLoadingReport(false);
     } catch (e) {
-      setLoadingReport(false)
-      toast.info('Something went wrong!')
+      setLoadingReport(false);
+      toast.info('Something went wrong!');
     }
+  };
+  const getReport = async (param) => {
+    console.log(param);
+    const response = await axios.get(`${URL.GET_AUTH_REPORTS_URL}/${param}`, {
+      headers: {
+        Authorization: `Bearer ${sessionStorage.getItem('ApiToken')}`,
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    });
   };
 
   useEffect(() => {
@@ -147,7 +179,8 @@ export const useReports = () => {
     createReport,
     onFileChange,
     file,
-    loadingReport
+    loadingReport,
+    getReport,
   };
 };
 
