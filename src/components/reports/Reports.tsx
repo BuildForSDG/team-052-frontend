@@ -7,6 +7,7 @@ import useReports from '../../hooks/reports/useReports';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { ReportsProps } from '../../interfaces/ReportsProps.interface';
 import { Link } from 'react-router-dom';
+import { showColorForStatus } from '../../utils/helpers';
 
 // eslint-disable-next-line react/prop-types
 const Reports: FC<ReportsProps> = ({ history }) => {
@@ -37,6 +38,7 @@ const Reports: FC<ReportsProps> = ({ history }) => {
                 <div className="card-body pt-2">
                   <p className="card-title text-center">
                     <Link
+                      style={{ textDecoration: 'none' }}
                       to={{
                         pathname: `/report/${report.title.replace(/ /g, '-').toLowerCase()}`,
                         state: {
@@ -44,12 +46,13 @@ const Reports: FC<ReportsProps> = ({ history }) => {
                         },
                       }}
                     >
-                      <strong className="report-title">{report.title}</strong>
+                      <strong className="report-title">{report.title.toUpperCase()}</strong>
                     </Link>
                   </p>
                   <hr />
                   <div style={{ display: 'flex' }}>
-                    <p>STATUS</p>: <span className="text-info">{report.status}</span>
+                    <p>STATUS</p>-{' '}
+                    <span className="report-status" style={{ color: showColorForStatus(report.status) }}>{report.status.toUpperCase()}</span>
                     <span className="text-right ml-auto">{report.location}</span>
                   </div>
                 </div>

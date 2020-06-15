@@ -114,6 +114,10 @@ p {
   border: 1px solid #000000;
   padding: 0.3em;
 }
+.report-status{
+  letter-spacing: 0.2em;
+  font-weight: 600;
+}
 .image{
   height: 20em;
 }

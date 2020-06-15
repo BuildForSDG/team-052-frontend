@@ -42,11 +42,11 @@ const Navigation: FC<NavigationProps> = ({ variantColor, backgroundColor, histor
                     Create Admin
                   </Link>
                 </NavItem>
-                <NavItem>
-                  <Link to="" style={{ color: 'beige' }}>
-                    Dummy
-                  </Link>
-                </NavItem>
+                {/*<NavItem>*/}
+                {/*  <Link to="" style={{ color: 'beige' }}>*/}
+                {/*    Dummy*/}
+                {/*  </Link>*/}
+                {/*</NavItem>*/}
                 <div className="logout" onClick={() => logoutUser(history)}>
                   <FontAwesomeIcon icon={faSignOutAlt} />
                 </div>
