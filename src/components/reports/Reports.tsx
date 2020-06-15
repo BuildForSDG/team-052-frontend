@@ -52,7 +52,9 @@ const Reports: FC<ReportsProps> = ({ history }) => {
                   <hr />
                   <div style={{ display: 'flex' }}>
                     <p>STATUS</p>-{' '}
-                    <span className="report-status" style={{ color: showColorForStatus(report.status) }}>{report.status.toUpperCase()}</span>
+                    <span className="report-status" style={{ color: showColorForStatus(report.status) }}>
+                      {report.status.toUpperCase()}
+                    </span>
                     <span className="text-right ml-auto">{report.location}</span>
                   </div>
                 </div>

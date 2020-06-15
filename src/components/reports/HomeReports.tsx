@@ -6,14 +6,23 @@ import { ReportsContainer } from '../../styles/ReportsStyle';
 import AppFooter from '../layouts/AppFooter';
 import useReports from '../../hooks/reports/useReports';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Moment from 'react-moment';
 
 const HomeReports: FC = () => {
   const { guestReports, loading, getFilteredReport } = useReports();
+  console.log(guestReports);
 
   const displayReports = () =>
     guestReports && guestReports.length
       ? guestReports.map(
-          (report: { id: string | number; visual_image: string; title: string; status: string; location: string }) => (
+          (report: {
+            time_of_report: any;
+            id: string | number;
+            visual_image: string;
+            title: string;
+            status: string;
+            location: string;
+          }) => (
             <div key={report.id} className="col-md-6 mb-4" style={{ width: '18rem' }}>
               <div className="card shadow">
                 <div className="reports-image m-4">
@@ -22,14 +31,14 @@ const HomeReports: FC = () => {
                 <div className="card-body pt-2">
                   {/* <div style={{ display: 'flex' }}> */}
                   <p className="card-title text-center">
-                    <strong>{report.title}</strong>
+                    <strong>{report.title.toUpperCase()}</strong>
                   </p>
                   <hr />
 
                   <div style={{ display: 'flex' }}>
-                    <p>STATUS</p>: <span className="text-info">{report.status}</span>
+                    <p>Time Reported</p> -<Moment format="YYYY-MM-DD">{report.time_of_report}</Moment>
                     {/* <p className="te/zxt-right ml-auto">Location: </p> */}
-                    <span className="text-right ml-auto">{report.location}</span>
+                    <span className="text-right ml-auto">{report.location.toUpperCase()}</span>
                   </div>
                 </div>
               </div>
