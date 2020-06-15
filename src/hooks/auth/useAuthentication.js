@@ -1,10 +1,11 @@
 import { useState, useReducer } from 'react';
 import axios from 'axios';
-import { LOGIN_URL } from '../../Urls/AuthenticationUrl';
+import { LOGIN_URL, LOGOUT_URL } from '../../Urls/AuthenticationUrl';
 import authenticationReducer from '../../reducers/authentication/authenticationReducer';
 import { LOGIN_USER } from '../../constants/AuthenticationTypes';
 import { LOADING_STOPS } from '../../constants/ReportTypes';
 import Urls from '../../utils/Paths';
+import { toast } from 'react-toastify';
 
 export const useAuthentication = () => {
   const [{ loadingLogin }, dispatch] = useReducer(authenticationReducer, {
@@ -39,10 +40,11 @@ export const useAuthentication = () => {
         history.push(path);
       }
     } catch (error) {
-      if (error.response.data) {
+      if (error.response) {
         if (error.response.data.errors) {
           // alert(error.response.data.errors.email);
           dispatch({ type: LOADING_STOPS });
+          toast.error('Invalid credentials');
         } else {
           // alert(error.response.data.message);
           dispatch({ type: LOADING_STOPS });
@@ -53,7 +55,18 @@ export const useAuthentication = () => {
     }
   };
 
-  return { onChange, login, loginUser, loadingLogin };
+  const logoutUser = async (history) => {
+    try {
+      const response = await axios.post(`${LOGOUT_URL}`);
+      if (response.data.message === 'logout successful') {
+        sessionStorage.removeItem('ApiToken');
+        history.push(`${Urls.HOME}`);
+      }
+    } catch (e) {
+      toast.error('Something went wrong!');
+    }
+  };
+  return { onChange, login, loginUser, loadingLogin, logoutUser };
 };
 
 export default useAuthentication;

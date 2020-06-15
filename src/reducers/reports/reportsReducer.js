@@ -20,6 +20,13 @@ export const reportsReducer = (state, action) => {
         reports: payload,
         loading: false,
       };
+    case types.GET_GUEST_REPORTS:
+      return {
+        ...state,
+        guestReports: payload,
+        loading: false,
+      };
+
     default:
       return state;
   }

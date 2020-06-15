@@ -4,6 +4,7 @@ import Banner from '../layouts/Banner';
 // import AppFooter from '../layouts/AppFooter';
 import AppContext from '../../context/AppContext';
 import { LoginProps } from '../../interfaces/LoginProps.interface';
+import { ToastContainer } from 'react-toastify';
 
 // eslint-disable-next-line react/prop-types
 const Login: FC<LoginProps> = ({ history, location }) => {
@@ -17,7 +18,7 @@ const Login: FC<LoginProps> = ({ history, location }) => {
   return (
     <Fragment>
       <Navigation backgroundColor={'rgb(1, 136, 73)'} variantColor={'light'} />
-      <Banner />
+      {/*<Banner />*/}
       <div className="container mt-3 pt-3 pb-3 login-container">
         <form onSubmit={submitForm}>
           <div className="row">
@@ -57,6 +58,7 @@ const Login: FC<LoginProps> = ({ history, location }) => {
           </div>
         </form>
       </div>
+      <ToastContainer />
 
       {/* <div className="container">
         <AppFooter />

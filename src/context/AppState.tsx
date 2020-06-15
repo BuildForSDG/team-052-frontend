@@ -11,8 +11,8 @@ interface AppProps {
 // eslint-disable-next-line react/prop-types
 export const AppState = ({ children }: AppProps) => {
   const { Provider } = AppContext;
-  const { reports, loading, report } = useReports();
-  const { onChange, login, loginUser, loadingLogin } = useAuthentication();
+  const { reports, loading, report, createReport, onReportChange, onFileChange, file, loadingReport } = useReports();
+  const { onChange, login, loginUser, loadingLogin, logoutUser } = useAuthentication();
   const { admin, createAdminChange, createAdmin, creatingAdmin } = useAdmin();
   return (
     <Provider
@@ -28,6 +28,12 @@ export const AppState = ({ children }: AppProps) => {
         createAdminChange,
         createAdmin,
         creatingAdmin,
+        logoutUser,
+        createReport,
+        onReportChange,
+        onFileChange,
+        file,
+        loadingReport
       }}
     >
       {children}
