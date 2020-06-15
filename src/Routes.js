@@ -9,6 +9,7 @@ import CreateAdmin from './components/admin/CreateAdmin';
 import { PrivateRoute } from './PrivateRoute';
 import HomeReports from './components/reports/HomeReports';
 import Report from './components/reports/Report';
+import Metrics from './components/Metrics';
 
 const Routes = () => {
   return (
@@ -18,6 +19,7 @@ const Routes = () => {
         <Route exact path={Urls.HOME} component={HomeReports} />
         <Route exact path={Urls.CREATE_REPORT} component={CreateReport} />
         <Route exact path={Urls.LOGIN} component={Login} />
+        <Route exact path={Urls.METRICS} component={Metrics} />
         <PrivateRoute exact path={Urls.CREATE_ADMIN} component={CreateAdmin} />
         <PrivateRoute exact path={Urls.SINGLE_REPORT} component={Report} />
       </Switch>

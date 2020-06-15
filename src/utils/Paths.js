@@ -5,6 +5,7 @@ const Urls = {
   LOGIN: '/login',
   CREATE_ADMIN: '/create-admin',
   HOME: '/',
+  METRICS: '/metrics'
 };
 
 export default Urls;

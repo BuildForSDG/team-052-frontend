@@ -118,6 +118,25 @@ p {
   letter-spacing: 0.2em;
   font-weight: 600;
 }
+
+.metrics-container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 9%;
+  margin-top: 2%;
+}
+.count{
+  font-size: 29px;
+  font-weight: 700;
+  line-height: 1.65857;
+  text-align: center;
+  color: #57584e;
+}
+.metric-item{
+  text-align: center;
+  font-weight: 500;
+  margin-top: 7%;
+}
 .image{
   height: 20em;
 }

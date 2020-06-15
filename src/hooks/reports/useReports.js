@@ -26,6 +26,7 @@ export const useReports = () => {
   const [report, setReport] = useState(reportState);
   const [file, setFile] = useState(null);
   const [loadingReport, setLoadingReport] = useState(false);
+  const [metrics, setMetrics] = useState({})
   const onReportChange = (e) => {
     const { name, value } = e.target;
     setReport({
@@ -179,6 +180,17 @@ export const useReports = () => {
     }
   };
 
+  const getMetrics = async () => {
+    try {
+      dispatch({
+        type: types.LOADING_STARTS,
+      });
+      return await axios.get(`${URL.GET_METRICS_URL}`);
+    } catch (e) {
+      return e;
+    }
+  };
+
   useEffect(() => {
     getReports()
       .then((data) => {
@@ -204,6 +216,15 @@ export const useReports = () => {
           type: types.LOADING_STOPS,
         });
       });
+    getMetrics()
+      .then((response) => {
+        setMetrics(response.data)
+      })
+      .catch(() => {
+        dispatch({
+          type: types.LOADING_STOPS,
+        });
+      });
   }, []);
   return {
     reports,
@@ -218,6 +239,7 @@ export const useReports = () => {
     loadingReport,
     getReport,
     updateStatus,
+    metrics,
   };
 };
 
