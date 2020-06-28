@@ -1,14 +1,14 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import Navigation from '../layouts/Navigation';
 import { ReportContainer } from '../../styles/ReportStyle';
 import { useLocation } from 'react-router-dom';
 import Moment from 'react-moment';
 import useReports from '../../hooks/reports/useReports';
+import Navigation from '../layouts/v2/Navigation';
 
 // eslint-disable-next-line react/prop-types
 const Report = ({ history }) => {
   const [one, setOne] = useState({});
-  const {updateStatus} = useReports();
+  const { updateStatus } = useReports();
   const location = useLocation();
 
   useEffect(() => {
@@ -22,8 +22,8 @@ const Report = ({ history }) => {
   }, [history, location]);
   return (
     <Fragment>
-      <Navigation backgroundColor={'rgb(1, 136, 73)'} variantColor={'light'} />
       {/* <Banner /> */}
+      <Navigation />
       <div className="container">
         <ReportContainer>
           <div className="row">
@@ -40,7 +40,7 @@ const Report = ({ history }) => {
                   <hr />
 
                   <div>
-                    <div style={{ display: 'flex' }}>
+                    <div className="report-info">
                       <p>STATUS</p>- <span className="text-info">{one.status}</span>
                       {/*<div className="update-status">*/}
                       <select onChange={(e) => updateStatus(one.id, e.target.value, history)} className="update-status">
@@ -54,12 +54,13 @@ const Report = ({ history }) => {
                     <div style={{ display: 'flex' }}>
                       <p>Location</p>- <span className="text-info">{one.location}</span>
                     </div>
-                    <div style={{ display: 'flex' }}>
-                      <p>Time Reported</p> -<Moment format="YYYY-MM-DD">{one.time_of_report}</Moment>
+                    <div className="report-reported">
+                      <p>Time Reported-</p>
+                      <Moment format="YYYY-MM-DD">{one.time_of_report}</Moment>
                     </div>
 
-                    <div style={{ display: 'flex' }}>
-                      <p>Time Updated</p> -<Moment format="YYYY-MM-DD">{one.status_updated_at}</Moment>
+                    <div className="report-updated">
+                      <p>Time Updated-</p> <Moment format="YYYY-MM-DD">{one.status_updated_at}</Moment>
                     </div>
                   </div>
                 </div>

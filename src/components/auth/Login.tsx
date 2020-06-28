@@ -1,10 +1,10 @@
 import React, { FC, useContext, Fragment, FormEvent } from 'react';
-import Navigation from '../layouts/Navigation';
 import Banner from '../layouts/Banner';
 // import AppFooter from '../layouts/AppFooter';
 import AppContext from '../../context/AppContext';
 import { LoginProps } from '../../interfaces/LoginProps.interface';
 import { ToastContainer } from 'react-toastify';
+import Navigation from '../layouts/v2/Navigation';
 
 // eslint-disable-next-line react/prop-types
 const Login: FC<LoginProps> = ({ history, location }) => {
@@ -17,8 +17,8 @@ const Login: FC<LoginProps> = ({ history, location }) => {
   };
   return (
     <Fragment>
-      <Navigation backgroundColor={'rgb(1, 136, 73)'} variantColor={'light'} />
       {/*<Banner />*/}
+      <Navigation />
       <div className="container mt-3 pt-3 pb-3 login-container">
         <form onSubmit={submitForm}>
           <div className="row">

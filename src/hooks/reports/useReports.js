@@ -26,7 +26,7 @@ export const useReports = () => {
   const [report, setReport] = useState(reportState);
   const [file, setFile] = useState(null);
   const [loadingReport, setLoadingReport] = useState(false);
-  const [metrics, setMetrics] = useState({})
+  const [metrics, setMetrics] = useState({});
   const onReportChange = (e) => {
     const { name, value } = e.target;
     setReport({
@@ -218,7 +218,7 @@ export const useReports = () => {
       });
     getMetrics()
       .then((response) => {
-        setMetrics(response.data)
+        setMetrics(response.data);
       })
       .catch(() => {
         dispatch({

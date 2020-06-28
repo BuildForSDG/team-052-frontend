@@ -15,66 +15,66 @@ import { withRouter } from 'react-router';
 const Navigation: FC<NavigationProps> = ({ variantColor, backgroundColor, history }) => {
   const { logoutUser } = useContext(AppContext);
   return (
-    <div style={{ marginBottom: '0.4%', background: backgroundColor }}>
-      <Navbar collapseOnSelect expand="lg">
-        <div style={{ width: '40%', fontSize: '1rem' }} className="ml-0">
-          <Navbar.Brand>
-            <Link style={{ color: 'black' }} to={sessionStorage.getItem('ApiToken') ? Urls.AUTH_HOME : Urls.HOME}>
-              PROJECT-052
-            </Link>
-          </Navbar.Brand>
-        </div>
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <div
-            style={{ width: '100%' }}
-            className="text-center
+    // <div style={{ marginBottom: '0.4%', background: backgroundColor }}>
+    <Navbar collapseOnSelect expand="lg">
+      <div style={{ width: '40%', fontSize: '1rem' }} className="ml-0">
+        <Navbar.Brand>
+          <Link style={{ color: 'black' }} to={sessionStorage.getItem('ApiToken') ? Urls.AUTH_HOME : Urls.HOME}>
+            PROJECT-052
+          </Link>
+        </Navbar.Brand>
+      </div>
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <div
+          style={{ width: '100%' }}
+          className="text-center
             "
-          >
-            {sessionStorage.getItem('ApiToken') ? (
-              <Nav>
-                <NavItem>
-                  <Link to={Urls.CREATE_REPORT} style={{ color: 'beige' }}>
-                    Create Report
-                  </Link>
-                </NavItem>
-                <NavItem>
-                  <Link to={Urls.CREATE_ADMIN} style={{ color: 'beige' }}>
-                    Create Admin
-                  </Link>
-                </NavItem>
-                <NavItem>
-                  <Link to={Urls.METRICS} style={{ color: 'beige' }}>
-                    Metrics
-                  </Link>
-                </NavItem>
-                <div className="logout" onClick={() => logoutUser(history)}>
-                  <FontAwesomeIcon icon={faSignOutAlt} />
-                </div>
-              </Nav>
-            ) : (
-              <Nav>
-                <NavItem>
-                  <Link to={Urls.CREATE_REPORT} style={{ color: 'beige' }}>
-                    Create Report
-                  </Link>
-                </NavItem>
-                <NavItem>
-                  <Link to={Urls.METRICS} style={{ color: 'beige' }}>
-                    Metrics
-                  </Link>
-                </NavItem>
+        >
+          {sessionStorage.getItem('ApiToken') ? (
+            <Nav>
+              <NavItem>
+                <Link to={Urls.CREATE_REPORT} style={{ color: 'beige' }}>
+                  Create Report
+                </Link>
+              </NavItem>
+              <NavItem>
+                <Link to={Urls.CREATE_ADMIN} style={{ color: 'beige' }}>
+                  Create Admin
+                </Link>
+              </NavItem>
+              <NavItem>
+                <Link to={Urls.METRICS} style={{ color: 'beige' }}>
+                  Metrics
+                </Link>
+              </NavItem>
+              <div className="logout" onClick={() => logoutUser(history)}>
+                <FontAwesomeIcon icon={faSignOutAlt} />
+              </div>
+            </Nav>
+          ) : (
+            <Nav>
+              <NavItem>
+                <Link to={Urls.CREATE_REPORT} style={{ color: 'beige' }}>
+                  Create Report
+                </Link>
+              </NavItem>
+              <NavItem>
+                <Link to={Urls.METRICS} style={{ color: 'beige' }}>
+                  Metrics
+                </Link>
+              </NavItem>
 
-                <NavItem>
-                  <Link to={Urls.LOGIN} style={{ color: 'beige' }}>
-                    Login
-                  </Link>
-                </NavItem>
-              </Nav>
-            )}
-          </div>
-        </Navbar.Collapse>
-      </Navbar>
-    </div>
+              <NavItem>
+                <Link to={Urls.LOGIN} style={{ color: 'beige' }}>
+                  Login
+                </Link>
+              </NavItem>
+            </Nav>
+          )}
+        </div>
+      </Navbar.Collapse>
+    </Navbar>
+    // </div>s
   );
 };
 

@@ -1,9 +1,9 @@
 import React, { FC, FormEvent, Fragment, useContext } from 'react';
-import Navigation from '../layouts/Navigation';
 // import AppFooter from '../layouts/AppFooter';
 import AppContext from '../../context/AppContext';
 import { CreateReportProps } from '../../interfaces/CreateReportProps';
 import { ToastContainer } from 'react-toastify';
+import Navigation from '../layouts/v2/Navigation';
 
 // type CreateReportType = {
 //   name: string;
@@ -35,9 +35,10 @@ const CreateReport: FC<CreateReportProps> = ({ history }) => {
 
   return (
     <Fragment>
-      <Navigation backgroundColor={'rgb(1, 136, 73)'} variantColor={'light'} />
+      <Navigation />
+      {/* <Navigation backgroundColor={'rgb(1, 136, 73)'} variantColor={'light'} /> */}
       {/*<Banner />*/}
-      <div style={{ width: '50%' }} className="container mt-3 pt-3 pb-3 shadow">
+      <div className="container mt-3 pt-3 pb-3 shadow form-container">
         <form onSubmit={submit}>
           <div className="row">
             <div className="col-12 mb-5">
