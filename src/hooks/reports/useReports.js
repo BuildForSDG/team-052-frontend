@@ -58,6 +58,7 @@ export const useReports = () => {
   };
 
   const getGuestsReports = async () => {
+    console.log(`${URL.GET_GUEST_REPORTS_URL}`);
     dispatch({
       type: types.LOADING_STARTS,
     });
@@ -206,6 +207,7 @@ export const useReports = () => {
       });
     getGuestsReports()
       .then((data) => {
+        console.log(data);
         dispatch({
           type: types.GET_GUEST_REPORTS,
           payload: data.data.data,

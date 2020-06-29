@@ -20,6 +20,7 @@ const CreateReport: FC<CreateReportProps> = ({ history }) => {
   const { report, createReport, onReportChange, onFileChange, file, loadingReport } = useContext(AppContext);
   // const { onChange } = useReports();
   const { location, name, description, loaded } = report;
+  console.log(report);
   const isEnabled = () => location.length > 0 && file !== null;
   const submit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

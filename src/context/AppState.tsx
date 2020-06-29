@@ -1,15 +1,15 @@
-import React, { ReactNode } from 'react';
+import React, { createContext, ReactNode } from 'react';
 import useReports from '../hooks/reports/useReports';
-import AppContext from './AppContext';
+// import AppContext from './AppContext';
 import useAuthentication from '../hooks/auth/useAuthentication';
 import useAdmin from '../hooks/admin/useAdmin';
 
 interface AppProps {
   children: ReactNode;
 }
-
+const AppContext = createContext({});
 // eslint-disable-next-line react/prop-types
-export const AppState = ({ children }: AppProps) => {
+function AppState({ children }: AppProps) {
   const { Provider } = AppContext;
   const { reports, loading, report, createReport, onReportChange, onFileChange, file, loadingReport } = useReports();
   const { onChange, login, loginUser, loadingLogin, logoutUser } = useAuthentication();
@@ -39,6 +39,7 @@ export const AppState = ({ children }: AppProps) => {
       {children}
     </Provider>
   );
-};
+}
+export { AppState };
 
 // export default AppState;

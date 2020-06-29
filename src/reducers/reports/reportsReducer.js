@@ -1,6 +1,6 @@
 import * as types from '../../constants/ReportTypes';
 
-export const reportsReducer = (state, action) => {
+export function reportsReducer(state, action) {
   const { type, payload } = action;
   switch (type) {
     case types.LOADING_STARTS:
@@ -30,6 +30,6 @@ export const reportsReducer = (state, action) => {
     default:
       return state;
   }
-};
+}
 
 export default reportsReducer;
