@@ -5,7 +5,7 @@ import { CreateReportProps } from '../../interfaces/CreateReportProps';
 import { ToastContainer } from 'react-toastify';
 import Navigation from '../layouts/v2/Navigation';
 // import { ReportsProps } from '../interfaces/ReportsProps.interface';
-import { ReportsProps } from '../../interfaces/ReportProps.interface';
+import { ReportProps } from '../../interfaces/ReportProps.interface';
 
 // type CreateReportType = {
 //   name: string;
@@ -18,7 +18,7 @@ import { ReportsProps } from '../../interfaces/ReportProps.interface';
 //   report: CreateReportType[];
 // };
 
-const CreateReport: FC = ({ history }) => {
+const CreateReport: FC<ReportProps> = ({ history }) => {
   const { report, createReport, onReportChange, onFileChange, file, loadingReport } = useContext(AppContext);
   // const { onChange } = useReports();
   const { location, name, description, loaded } = report;
