@@ -2,10 +2,11 @@ import React, { Fragment, useContext } from 'react';
 import { ToastContainer } from 'react-toastify';
 import Navigation from '../layouts/Navigation';
 import { AppContext } from '../../context/AppState';
+import PropTypes from 'prop-types';
 const CreateReport = ({ history }) => {
   const { report, createReport, onReportChange, onFileChange, file, loadingReport } = useContext(AppContext);
   // const { onChange } = useReports();
-  const { location, name, } = report;
+  const { location, name } = report;
   const isEnabled = () => location.length > 0 && file !== null;
   const submit = (e) => {
     e.preventDefault();
@@ -85,8 +86,7 @@ const CreateReport = ({ history }) => {
   );
 };
 CreateReport.propTypes = {
-  history: PropTypes.shape()
-}
-
+  history: PropTypes.shape(),
+};
 
 export default CreateReport;

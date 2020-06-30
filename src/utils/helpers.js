@@ -6,5 +6,8 @@ export const showColorForStatus = (value) => {
       return 'blue';
     case 'enroute':
       return 'yellow';
+
+    default:
+      return 'black';
   }
 };
