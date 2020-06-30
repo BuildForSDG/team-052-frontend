@@ -1,21 +1,21 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { Fragment, FC } from 'react';
-import Navigation from '../layouts/Navigation';
+// import Navigation from '../layouts/Navigation';
 import { ReportsContainer } from '../../styles/ReportsStyle';
-import AppFooter from '../layouts/AppFooter';
 import useReports from '../../hooks/reports/useReports';
 import Dropdown from 'react-bootstrap/Dropdown';
-import Moment from 'react-moment';
+import Navigation from '../layouts/Navigation';
+
+import { showColorForStatus } from '../../utils/helpers';
 
 const HomeReports: FC = () => {
   const { guestReports, loading, getFilteredReport } = useReports();
-  console.log(guestReports);
-
   const displayReports = () =>
     guestReports && guestReports.length
       ? guestReports.map(
           (report: {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             time_of_report: any;
             id: string | number;
             visual_image: string;
@@ -23,22 +23,33 @@ const HomeReports: FC = () => {
             status: string;
             location: string;
           }) => (
-            <div key={report.id} className="col-md-6 mb-4" style={{ width: '18rem' }}>
-              <div className="card shadow">
+            <div
+              // onClick={() => history.push(`${Urls.SINGLE_REPORT}${report.title.replace(/ /g, '-').toLoew}`)}
+              // onClick={() => getReport(report.id)}
+              key={report.id}
+              className="col-md-6 mb-4 report"
+              // style={{ width: '18rem' }}
+            >
+              <div className="card shadow card-report">
                 <div className="reports-image m-4">
                   <img src={report.visual_image} className="card-img-top image" />
                 </div>
                 <div className="card-body pt-2">
-                  {/* <div style={{ display: 'flex' }}> */}
                   <p className="card-title text-center">
-                    <strong>{report.title.toUpperCase()}</strong>
+                    <strong className="report-title">{report.title.toUpperCase()}</strong>
                   </p>
                   <hr />
-
-                  <div style={{ display: 'flex' }}>
-                    <p>Time Reported</p> -<Moment format="YYYY-MM-DD">{report.time_of_report}</Moment>
-                    {/* <p className="te/zxt-right ml-auto">Location: </p> */}
-                    <span className="text-right ml-auto">{report.location.toUpperCase()}</span>
+                  <div className="report-detail">
+                    {/*<p>STATUS</p>-{' '}*/}
+                    <div className="status" style={{ backgroundColor: showColorForStatus(report.status) }}>
+                      <span
+                        className="report-status"
+                        // style={{ color: showColorForStatus(report.status) }}
+                      >
+                        {report.status.toUpperCase()}
+                      </span>
+                    </div>
+                    <span className="text-right ml-auto report-location">{report.location}</span>
                   </div>
                 </div>
               </div>
@@ -49,7 +60,8 @@ const HomeReports: FC = () => {
 
   return (
     <Fragment>
-      <Navigation backgroundColor={'rgb(1, 136, 73)'} variantColor={'light'} />
+      <Navigation />
+      {/*<Navigation backgroundColor={'rgb(1, 136, 73)'} variantColor={'light'} />*/}
       {/*<Banner />*/}
       <div className="body">
         <div className="container filter">

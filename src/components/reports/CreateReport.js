@@ -1,27 +1,14 @@
-import React, { FC, FormEvent, Fragment, useContext } from 'react';
-import Navigation from '../layouts/Navigation';
-// import AppFooter from '../layouts/AppFooter';
-import AppContext from '../../context/AppContext';
-import { CreateReportProps } from '../../interfaces/CreateReportProps';
+import React, { Fragment, useContext } from 'react';
 import { ToastContainer } from 'react-toastify';
-
-// type CreateReportType = {
-//   name: string;
-//   description: string;
-//   location: string;
-// image: String;
-// };
-
-// type ReportTypes = {
-//   report: CreateReportType[];
-// };
-
-const CreateReport: FC<CreateReportProps> = ({ history }) => {
+import Navigation from '../layouts/Navigation';
+import { AppContext } from '../../context/AppState';
+import PropTypes from 'prop-types';
+const CreateReport = ({ history }) => {
   const { report, createReport, onReportChange, onFileChange, file, loadingReport } = useContext(AppContext);
   // const { onChange } = useReports();
-  const { location, name, description, loaded } = report;
+  const { location, name } = report;
   const isEnabled = () => location.length > 0 && file !== null;
-  const submit = (e: FormEvent<HTMLFormElement>) => {
+  const submit = (e) => {
     e.preventDefault();
     const data = new FormData();
     data.append('visual_image', file);
@@ -30,14 +17,14 @@ const CreateReport: FC<CreateReportProps> = ({ history }) => {
     // data.append('note', description);
 
     createReport(data, history);
-    // loginUser(login, history, location);
   };
 
   return (
     <Fragment>
-      <Navigation backgroundColor={'rgb(1, 136, 73)'} variantColor={'light'} />
+      <Navigation />
+      {/* <Navigation backgroundColor={'rgb(1, 136, 73)'} variantColor={'light'} /> */}
       {/*<Banner />*/}
-      <div style={{ width: '50%' }} className="container mt-3 pt-3 pb-3 shadow">
+      <div className="container mt-3 pt-3 pb-3 shadow form-container">
         <form onSubmit={submit}>
           <div className="row">
             <div className="col-12 mb-5">
@@ -97,6 +84,9 @@ const CreateReport: FC<CreateReportProps> = ({ history }) => {
       <ToastContainer />
     </Fragment>
   );
+};
+CreateReport.propTypes = {
+  history: PropTypes.shape(),
 };
 
 export default CreateReport;

@@ -1,13 +1,12 @@
 /* eslint-disable react/prop-types */
-import React, { Fragment, useContext, FC } from 'react';
-import Navigation from '../layouts/Navigation';
+import React, { Fragment, useContext } from 'react';
 import { Form } from 'react-bootstrap';
-import AppContext from '../../context/AppContext';
 import { ToastContainer } from 'react-toastify';
-import { AdminProps } from '../../interfaces/AdminProps.interface';
 import Banner from '../layouts/Banner';
+import Navigation from '../layouts/Navigation';
+import { AppContext } from '../../context/AppState';
 
-const CreateAdmin: FC<AdminProps> = ({ history }) => {
+const CreateAdmin = ({ history }) => {
   const { admin, createAdminChange, createAdmin, creatingAdmin } = useContext(AppContext);
   const { name, email, password } = admin;
 
@@ -15,11 +14,11 @@ const CreateAdmin: FC<AdminProps> = ({ history }) => {
 
   return (
     <Fragment>
-      <Navigation backgroundColor={'rgb(1, 136, 73)'} variantColor={'light'} />
+      <Navigation />
       <Banner />
       <div className="container form">
         <Form
-          onSubmit={(e: { preventDefault: () => void }) => {
+          onSubmit={(e) => {
             e.preventDefault();
             createAdmin(admin, history);
           }}

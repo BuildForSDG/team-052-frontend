@@ -4,13 +4,13 @@ import * as serviceWorker from './serviceWorker';
 import Routes from './Routes';
 import './index.css';
 import 'react-toastify/dist/ReactToastify.css';
-import { AppState } from './context/AppState';
+import { AppProvider } from './context/AppState';
 
 ReactDOM.render(
   <React.StrictMode>
-    <AppState>
+    <AppProvider>
       <Routes />
-    </AppState>
+    </AppProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );

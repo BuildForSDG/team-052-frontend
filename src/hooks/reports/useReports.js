@@ -26,7 +26,7 @@ export const useReports = () => {
   const [report, setReport] = useState(reportState);
   const [file, setFile] = useState(null);
   const [loadingReport, setLoadingReport] = useState(false);
-  const [metrics, setMetrics] = useState({})
+  const [metrics, setMetrics] = useState({});
   const onReportChange = (e) => {
     const { name, value } = e.target;
     setReport({
@@ -58,6 +58,7 @@ export const useReports = () => {
   };
 
   const getGuestsReports = async () => {
+    console.log(`${URL.GET_GUEST_REPORTS_URL}`);
     dispatch({
       type: types.LOADING_STARTS,
     });
@@ -206,6 +207,7 @@ export const useReports = () => {
       });
     getGuestsReports()
       .then((data) => {
+        console.log(data);
         dispatch({
           type: types.GET_GUEST_REPORTS,
           payload: data.data.data,
@@ -218,7 +220,7 @@ export const useReports = () => {
       });
     getMetrics()
       .then((response) => {
-        setMetrics(response.data)
+        setMetrics(response.data);
       })
       .catch(() => {
         dispatch({

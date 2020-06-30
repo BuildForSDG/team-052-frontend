@@ -47,6 +47,11 @@ p {
   font-family: "Lucida Console", Monaco, monospace;
 }
 
+.card-report {
+  border-radius: 2em;
+  /* height: 80%; */
+}
+
 .reports-image {
   overflow: hidden;
 }
@@ -94,64 +99,221 @@ p {
   border: 1px solid rgb(1, 136, 73);
 }
 
-.body{
+.body {
   display: grid;
   grid-template-columns: 1fr 3fr;
 }
-.time{
+
+.time {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   background: green;
 }
-.filter{
+
+.filter {
   margin-top: 8%;
   /*margin-bottom: 3%;*/
 }
-.update-status{
+
+.update-status {
   position: absolute;
   right: 0;
   width: auto;
   border: 1px solid #000000;
   padding: 0.3em;
 }
-.report-status{
+
+.report-status {
   letter-spacing: 0.2em;
-  font-weight: 600;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  /* font-weight: 400; */
 }
 
-.metrics-container{
+.report-location {
+  font-size: 0.8em;
+}
+
+.metrics-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-row-gap: 9%;
   margin-top: 2%;
 }
-.count{
+
+.count {
   font-size: 29px;
   font-weight: 700;
   line-height: 1.65857;
   text-align: center;
   color: #57584e;
 }
-.metric-item{
+
+.metric-item {
   text-align: center;
   font-weight: 500;
   margin-top: 7%;
 }
-.image{
+
+.image {
   height: 20em;
 }
+
 .logout {
   color: white;
   cursor: pointer;
 }
 
-.report-title{
+.report-title {
   cursor: pointer;
-  /* font-size: 1.4em; */
   color: black;
+  font-size: 1.1em;
   text-decoration: none;
-  /* line-height: 2em; */
   letter-spacing: 0.1em;
 }
 
+.report-name {
+  font-size: 1.4em;
+}
 
+.navbar {
+  background-color: rgb(1, 136, 73);
+  /*variantColor={'light'} />*!}*/
+}
+
+.navbar-brand {
+  width: 30%;
+  font-size: 1.3rem;
+  color: white;
+}
+
+.navbar-links-container {
+  width: 100%;
+}
+
+.navbar-links {
+  width: 25%;
+  justify-content: center;
+  text-align: center;
+}
+
+.navbar-links-unauth {
+  width: 50%;
+  justify-content: center;
+}
+
+.report {
+  width: 18rem;
+}
+
+.report-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.status {
+  text-align: center;
+  width: 80%;
+  text-align: 6%;
+  /* padding-right: 6%; */
+  border-radius: 2em;
+  color: white;
+
+}
+
+.nav-navlinks {
+  width: 25%;
+  text-align: center;
+}
+
+.form-container {
+  width: 50%;
+}
+
+.metric {
+  width: 18rem;
+  margin: auto
+}
+
+.report-updated {
+  display: flex
+}
+
+.report-reported {
+  display: flex
+}
+
+.report-info {
+  display: flex;
+}
+
+@media only screen and (max-width: 767px) {
+  .report-info {
+    display: block;
+  }
+
+  .report-updated {
+    display: block;
+  }
+
+  .report-reported {
+    display: block;
+  }
+
+  .status {
+    padding-left: 6%;
+    padding-right: 6%;
+    border-radius: 2em;
+    color: white;
+    font-size: 1.0em;
+  }
+
+  .navbar-links {
+    width: 20%;
+  }
+
+  .report {
+    width: 100%;
+  }
+
+  .body {
+    display: block;
+  }
+
+  .report-detail {
+    display: block;
+  }
+
+  .report-status {
+    font-size: 15px;
+  }
+
+  .nav-navlinks {
+    width: 54%;
+    text-align: justify;
+  }
+
+  .form-container {
+    width: 100%;
+  }
+
+  .metrics-container {
+    display: block;
+  }
+
+  .metric {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    width: 18rem;
+    width: 18rem,
+  }
+
+  .form {
+    width: 100%;
+  }
+
+  .login-container {
+    width: 100%;
+  }
+}

@@ -1,25 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { Fragment, FC } from 'react';
-import Navigation from '../layouts/Navigation';
 import { ReportsContainer } from '../../styles/ReportsStyle';
 import useReports from '../../hooks/reports/useReports';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { ReportsProps } from '../../interfaces/ReportsProps.interface';
 import { Link } from 'react-router-dom';
 import { showColorForStatus } from '../../utils/helpers';
+import Navigation from '../layouts/Navigation';
 
 // eslint-disable-next-line react/prop-types
 const Reports: FC<ReportsProps> = ({ history }) => {
   const { reports, loading, getFilteredReport } = useReports();
-
-  // {
-  //   "note": "Alice to herself, 'I don't see how the game began. Alice gave a little timidly, for she was to.",
-  //   "location": "2903 Pansy Radial Suite 926",
-  //   "time_of_report": "2020-05-13T16:16:16.000000Z",
-  //   "status_updated_at": "2020-05-13T16:16:16.000000Z"
-  //   },
-
   const displayReports = () =>
     reports && reports.length
       ? reports.map(
@@ -28,10 +20,10 @@ const Reports: FC<ReportsProps> = ({ history }) => {
               // onClick={() => history.push(`${Urls.SINGLE_REPORT}${report.title.replace(/ /g, '-').toLoew}`)}
               // onClick={() => getReport(report.id)}
               key={report.id}
-              className="col-md-6 mb-4"
-              style={{ width: '18rem' }}
+              className="col-md-6 mb-4 report"
+              // style={{ width: '18rem' }}
             >
-              <div className="card shadow">
+              <div className="card shadow card-report">
                 <div className="reports-image m-4">
                   <img src={report.visual_image} className="card-img-top image" />
                 </div>
@@ -50,12 +42,17 @@ const Reports: FC<ReportsProps> = ({ history }) => {
                     </Link>
                   </p>
                   <hr />
-                  <div style={{ display: 'flex' }}>
-                    <p>STATUS</p>-{' '}
-                    <span className="report-status" style={{ color: showColorForStatus(report.status) }}>
-                      {report.status.toUpperCase()}
-                    </span>
-                    <span className="text-right ml-auto">{report.location}</span>
+                  <div className="report-detail">
+                    {/*<p>STATUS</p>-{' '}*/}
+                    <div className="status" style={{ backgroundColor: showColorForStatus(report.status) }}>
+                      <span
+                        className="report-status"
+                        // style={{ color: showColorForStatus(report.status) }}
+                      >
+                        {report.status.toUpperCase()}
+                      </span>
+                    </div>
+                    <span className="text-right ml-auto report-location">{report.location}</span>
                   </div>
                 </div>
               </div>
@@ -66,7 +63,8 @@ const Reports: FC<ReportsProps> = ({ history }) => {
 
   return (
     <Fragment>
-      <Navigation backgroundColor={'rgb(1, 136, 73)'} variantColor={'light'} />
+      <Navigation />
+      {/*<Navigation backgroundColor={'rgb(1, 136, 73)'} variantColor={'light'} />*/}
       {/* <Banner /> */}
       <div className="body">
         <div className="container filter">
