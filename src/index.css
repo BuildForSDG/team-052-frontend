@@ -125,6 +125,9 @@ p {
 
 .report-status {
   letter-spacing: 0.2em;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
   /* font-weight: 400; */
 }
 
@@ -241,14 +244,15 @@ p {
   display: flex
 }
 
-.report-info{
+.report-info {
   display: flex;
 }
 
 @media only screen and (max-width: 767px) {
-  .report-info{
+  .report-info {
     display: block;
   }
+
   .report-updated {
     display: block;
   }

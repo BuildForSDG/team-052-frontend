@@ -5,7 +5,7 @@ import { Router } from 'react-router-dom';
 import { render } from '@testing-library/react';
 // import { renderHook, act } from '@testing-library/react-hooks';
 // import AppContext from '../../../context/AppContext';
-import { AppState } from '../../../context/AppState';
+import { AppState } from '../../../context/v1/AppState';
 // import { configure } from 'enzyme';
 // import Adapter from 'enzyme';
 // import { mount } from 'enzyme';

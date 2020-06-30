@@ -1,21 +1,19 @@
 import React, { createContext, ReactNode } from 'react';
-import useReports from '../hooks/reports/useReports';
-// import AppContext from './AppContext';
 import useAuthentication from '../hooks/auth/useAuthentication';
 import useAdmin from '../hooks/admin/useAdmin';
+import useReports from '../hooks/reports/useReports';
 
 interface AppProps {
   children: ReactNode;
 }
-const AppContext = createContext({});
+export const AppContext = createContext({});
 // eslint-disable-next-line react/prop-types
-function AppState({ children }: AppProps) {
-  const { Provider } = AppContext;
+export const AppProvider = ({ children }: AppProps) => {
   const { reports, loading, report, createReport, onReportChange, onFileChange, file, loadingReport } = useReports();
   const { onChange, login, loginUser, loadingLogin, logoutUser } = useAuthentication();
   const { admin, createAdminChange, createAdmin, creatingAdmin } = useAdmin();
   return (
-    <Provider
+    <AppContext.Provider
       value={{
         reports,
         loading,
@@ -33,13 +31,10 @@ function AppState({ children }: AppProps) {
         onReportChange,
         onFileChange,
         file,
-        loadingReport
+        loadingReport,
       }}
     >
       {children}
-    </Provider>
+    </AppContext.Provider>
   );
-}
-export { AppState };
-
-// export default AppState;
+};

@@ -3,7 +3,7 @@ import { ReportContainer } from '../../styles/ReportStyle';
 import { useLocation } from 'react-router-dom';
 import Moment from 'react-moment';
 import useReports from '../../hooks/reports/useReports';
-import Navigation from '../layouts/v2/Navigation';
+import Navigation from '../layouts/Navigation';
 
 // eslint-disable-next-line react/prop-types
 const Report = ({ history }) => {

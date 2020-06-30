@@ -1,4 +1,4 @@
-// import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 // // export interface ReportsProps  {
 // //   name: string;
 // //   numberType?: number;
@@ -8,11 +8,13 @@
 // //     location: string;
 // //   };
 // // }
-// export interface ReportsProps extends RouteComponentProps<any> {
-//     /* other props  */
-// }
-
-export interface ReportsProps {
-  name: string;
-  numberType?: number;
+export interface ReportsProps extends RouteComponentProps<any> {
+    /* other props  */
 }
+
+// export type ReportsProps = RouteComponentProps<any>;
+
+// export interface ReportsProps {
+//   name: string;
+//   numberType?: number;
+// }

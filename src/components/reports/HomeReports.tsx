@@ -3,22 +3,19 @@
 import React, { Fragment, FC } from 'react';
 // import Navigation from '../layouts/Navigation';
 import { ReportsContainer } from '../../styles/ReportsStyle';
-import AppFooter from '../layouts/AppFooter';
 import useReports from '../../hooks/reports/useReports';
 import Dropdown from 'react-bootstrap/Dropdown';
-import Moment from 'react-moment';
-import Navigation from '../layouts/v2/Navigation';
+import Navigation from '../layouts/Navigation';
 
 import { showColorForStatus } from '../../utils/helpers';
 
 const HomeReports: FC = () => {
-  const { reports, guestReports, loading, getFilteredReport } = useReports();
-  console.log(guestReports);
-
+  const { guestReports, loading, getFilteredReport } = useReports();
   const displayReports = () =>
     guestReports && guestReports.length
       ? guestReports.map(
           (report: {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             time_of_report: any;
             id: string | number;
             visual_image: string;
@@ -49,7 +46,7 @@ const HomeReports: FC = () => {
                         className="report-status"
                         // style={{ color: showColorForStatus(report.status) }}
                       >
-                        {/* {report.status.toUpperCase()} */}
+                        {report.status.toUpperCase()}
                       </span>
                     </div>
                     <span className="text-right ml-auto report-location">{report.location}</span>

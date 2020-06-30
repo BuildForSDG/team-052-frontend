@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import Urls from '../../../utils/Paths';
+import Urls from '../../utils/Paths';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
-import AppContext from '../../../context/AppContext';
 import { withRouter } from 'react-router';
+import { AppContext } from '../../context/AppState';
+import PropTypes from 'prop-types';
 const Navigation = ({ history }) => {
   const { logoutUser } = useContext(AppContext);
   return (
@@ -59,5 +60,7 @@ const Navigation = ({ history }) => {
     </Navbar>
   );
 };
-
+Navigation.propTypes = {
+  history: PropTypes.shape()
+}
 export default withRouter(Navigation);

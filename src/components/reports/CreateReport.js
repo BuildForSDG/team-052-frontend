@@ -1,30 +1,13 @@
-import React, { FC, FormEvent, Fragment, useContext } from 'react';
-// import AppFooter from '../layouts/AppFooter';
-import AppContext from '../../context/AppContext';
-import { CreateReportProps } from '../../interfaces/CreateReportProps';
+import React, { Fragment, useContext } from 'react';
 import { ToastContainer } from 'react-toastify';
-import Navigation from '../layouts/v2/Navigation';
-// import { ReportsProps } from '../interfaces/ReportsProps.interface';
-import { ReportProps } from '../../interfaces/ReportProps.interface';
-
-// type CreateReportType = {
-//   name: string;
-//   description: string;
-//   location: string;
-// image: String;
-// };
-
-// type ReportTypes = {
-//   report: CreateReportType[];
-// };
-
-const CreateReport: FC<ReportProps> = ({ history }) => {
+import Navigation from '../layouts/Navigation';
+import { AppContext } from '../../context/AppState';
+const CreateReport = ({ history }) => {
   const { report, createReport, onReportChange, onFileChange, file, loadingReport } = useContext(AppContext);
   // const { onChange } = useReports();
-  const { location, name, description, loaded } = report;
-  console.log(report);
+  const { location, name, } = report;
   const isEnabled = () => location.length > 0 && file !== null;
-  const submit = (e: FormEvent<HTMLFormElement>) => {
+  const submit = (e) => {
     e.preventDefault();
     const data = new FormData();
     data.append('visual_image', file);
@@ -33,7 +16,6 @@ const CreateReport: FC<ReportProps> = ({ history }) => {
     // data.append('note', description);
 
     createReport(data, history);
-    // loginUser(login, history, location);
   };
 
   return (
@@ -102,5 +84,9 @@ const CreateReport: FC<ReportProps> = ({ history }) => {
     </Fragment>
   );
 };
+CreateReport.propTypes = {
+  history: PropTypes.shape()
+}
+
 
 export default CreateReport;

@@ -1,20 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { Fragment, FC } from 'react';
-// import Navigation from '../layouts/Navigation';
 import { ReportsContainer } from '../../styles/ReportsStyle';
 import useReports from '../../hooks/reports/useReports';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { ReportsProps } from '../../interfaces/ReportsProps.interface';
 import { Link } from 'react-router-dom';
 import { showColorForStatus } from '../../utils/helpers';
-import Navigation from '../layouts/v2/Navigation';
+import Navigation from '../layouts/Navigation';
 
 // eslint-disable-next-line react/prop-types
 const Reports: FC<ReportsProps> = ({ history }) => {
   const { reports, loading, getFilteredReport } = useReports();
-  console.log(reports);
-
   const displayReports = () =>
     reports && reports.length
       ? reports.map(

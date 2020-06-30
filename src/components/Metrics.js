@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import useReports from '../hooks/reports/useReports';
-import Navigation from './layouts/v2/Navigation';
+import Navigation from './layouts/Navigation';
 
 const Metrics = () => {
   const { loading, metrics } = useReports();
